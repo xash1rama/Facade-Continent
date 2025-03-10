@@ -1,0 +1,46 @@
+services:
+  app:
+    build:
+      context: ./fasad
+    container_name: facade_app
+    command: >
+      sh -c "uvicorn fasad.main:app --host 0.0.0.0 --port 5005 --reload & 
+              python -m fasad.bot.bot"
+
+    ports:
+      - 5005:5005  # Добавьте эту строку
+    networks:
+      - mynetwork
+
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - 9090:9090
+    depends_on:
+      - app
+    networks:
+      - mynetwork
+
+  grafana:
+    image: grafana/grafana:5.1.0
+    ports:
+      - 3000:3000
+    depends_on:
+      - app
+    networks:
+      - mynetwork
+
+  nginx:
+    build: ./nginx
+    ports:
+      - 80:80
+    depends_on:
+      - app
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge

@@ -1,0 +1,110 @@
+ /* Плавающее окно */
+.floating-sum {
+    position: fixed;
+    bottom: 30px; /* Немного выше от края */
+    left: 50%; /* Центрируем по горизонтали */
+    transform: translateX(-50%); /* Смещение для центрирования */
+    background: linear-gradient(135deg, #007bff, #003366); /* Более резкий градиентный фон */
+    color: white;
+    padding: 15px 25px; /* Уменьшаем отступы для компактности */
+    border-radius: 10px; /* Закругленные углы */
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5); /* Более мягкая тень */
+    z-index: 1000; /* Показать поверх других элементов */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Анимация появления */
+    opacity: 0; /* Начальная непрозрачность */
+    transform: translateY(20px); /* Начальное смещение вниз */
+    animation: pulse 1.5s infinite; /* Добавляем анимацию пульсации */
+}
+
+/* Показать окно */
+.floating-sum.visible {
+    opacity: 1; /* Полная непрозрачность */
+    transform: translateY(0); /* Возвращаем на место */
+}
+
+/* Анимация пульсации */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1); /* Исходный размер */
+    }
+    50% {
+        transform: scale(1.05); /* Увеличение на 5% */
+    }
+}
+
+.floating-sum h2 {
+    margin: 0; /* Убираем отступы */
+    font-size: 22px; /* Уменьшаем размер шрифта для компактности */
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8); /* Тень для текста */
+    letter-spacing: 0.5px; /* Немного увеличиваем расстояние между буквами */
+}
+
+    /* Плавающее окно */
+
+
+
+    /* Таблицы */
+.table-container {
+    max-width: 900px; /* Ограничиваем ширину таблицы */
+    margin: 0 auto; /* Центрируем таблицу */
+    padding: 20px; /* Добавляем отступы вокруг контейнера */
+    background: linear-gradient(rgba(0, 0, 139, 0.6), rgba(40, 40, 40, 0.9)); /* Градиент от темно-синего к темно-серому с полупрозрачностью */
+    border-radius: 10px; /* Закругленные углы */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Тень для контейнера */
+}
+
+.compact-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.compact-table th, .compact-table td {
+    padding: 1px; /* Увеличиваем отступы для лучшего восприятия */
+    text-align: center;
+    border: 1px solid rgba(0, 123, 255, 0.4); /* Полупрозрачная граница для ячеек */
+    transition: background-color 0.3s; /* Плавный переход фона */
+}
+
+.compact-table th {
+    background-color: rgba(0, 0, 0, 0.7); /* Темный фон для заголовков */
+    color: white;
+    font-weight: bold; /* Жирный шрифт для заголовков */
+    text-transform: uppercase; /* Заглавные буквы для заголовков */
+}
+
+.compact-table tr:hover td {
+    background-color: rgba(0, 0, 0, 0.8); /* Полупрозрачный черный фон для кнопки */
+}
+
+.btn-compact {
+            background: linear-gradient(to bottom, silver, #333); /* Градиент от серебристого к темно-серому */
+            border: 0px linear-gradient(rgba(0, 0, 139, 0.3), rgba(40, 40, 40, 0.1)); /* Градиент от темно-синего к темно-серому с полупрозрачностью */
+            color: #fff; /* Белый текст */
+            padding: 1px 10px; /* Отступы */
+            font-size: 20px; /* Размер шрифта */
+            cursor: pointer; /* Указатель при наведении */
+            margin-top: 2px; /* Отступ сверху */
+            transition: background-color 0.3s, color 0.3s; /* Плавный переход цвета */
+        }
+
+.btn-compact:hover {
+    background-color: rgba(255, 255, 255, 0.5); /* Темнее при наведении */
+    color: black; /* Темный текст при наведении */
+    transform: translateY(-2px); /* Легкое поднятие кнопки при наведении */
+}
+
+.volume-input {
+    display: inline-block;
+    margin-left: 3px;
+    padding: 5px; /* Добавляем отступы для инпута */
+    border: 1px solid rgba(0, 123, 255, 0.3); /* Полупрозрачная граница для инпута */
+    border-radius: 10px; /* Закругленные углы для инпута */
+    background-color: #003366; /* Темный фон для инпута */
+    color: white; /* Цвет текста инпута */
+}
+    /* Таблицы */
+
+
+

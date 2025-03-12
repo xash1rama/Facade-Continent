@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+
+
+{% block title %}
+Facade Continent - Портфолио фасадов
+{% endblock %}
+
+
+
+{% block style %}
+    <link rel="stylesheet" href="css/styles_portfolios.css">
+    <link rel="stylesheet" href="css/styles_index.css">
+{% endblock %}
+
+
+
+{% block content %}
+<h1 style="text-align: center;">Кейсы наших фасадов</h1>
+<div id="portfolio-list" class="mt-4">
+    {% for portfolio_id, portfolio in portfolios.items() %}
+    <div class="portfolio-item" style="margin-bottom: 10px; padding: 10px;">
+        <div class="position-relative text-center">
+                        <img src="image/portfolio/{{ portfolio.main_photo }}" alt="{{ portfolio.title }}" class="img-fluid" style="width: 20%; height: auto;">
+            <div class="portfolio-overlay" style="position: absolute; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.3); color: white; padding: 10px;">
+                <h2 style="font-size: 1.5em; margin: 0;">{{ portfolio.title }}</h2>
+                <p style="font-size: 1em; margin: 0;">{{ portfolio.description }}</p>
+            </div>
+        </div>
+        <div class="text-center" style="margin-top: 10px;">
+            <div class="toggle-container">
+                <div class="toggle-bar"></div>
+                <span id="toggle-text-{{ portfolio_id }}" style="color: white; margin-bottom: 5px;">Открыть галерею</span>
+                <button class="toggle-btn" id="toggle-btn-{{ portfolio_id }}" onclick="toggleGallery({{ portfolio_id }})">
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+        </div>
+        <div id="gallery-{{ portfolio_id }}" class="gallery" style="margin-top: 20px;">
+            {% for photo in portfolio.photos %}
+            <img src="image/portfolio/{{ photo.filename }}" alt="Фото" style="width: 300px; height: 275px; margin: 5px;"
+                 onclick="openFullscreen('image/portfolio/{{ photo.filename }}', {{ loop.index0 }}, {{ portfolio.photos|length }})" onmouseover="this.style.cursor='pointer'">
+            {% endfor %}
+        </div>
+    </div>
+    <div class="toggle-bar"></div>
+    {% endfor %}
+</div>
+
+
+
+<!-- Элемент для увеличенного изображения -->
+<div id="fullscreen" class="fullscreen-image" onclick="closeFullscreen()">
+    <img id="fullscreenImage" src="" alt="Увеличенное изображение">
+</div>
+
+
+
+<div class="text-column">
+    <h1 class="info-text large-text">Для более подробной информации</h1>
+    <p>Не стесняйтесь! Мы готовы помочь вам разобраться во всех нюансах.
+            Наш дружелюбный менеджер предоставит вам всю необходимую информацию.
+            С небольшими советами и профессиональными рекомендациями вы сможете выбрать идеальный вариант именно для вашего проекта.
+            Ваши идеи — это наш приоритет! 💬</p>
+    <div class="divider"></div> <!-- Полоска разделения -->
+    <a href="/contacts" class="slide-button">Связаться с нами</a>
+</div>
+{% endblock %}
+
+
+
+
+
+{% block scripts %}
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="scripts/script_portfolios.js"></script>
+    <script src="scripts/script_scroll_to_top.js"></script>
+
+{% endblock %}
+
+
+
+

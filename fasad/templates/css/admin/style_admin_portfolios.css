@@ -1,0 +1,101 @@
+.form-control {
+        width: 100%; /* Поле будет занимать всю ширину родительского элемента */
+        max-width: 600px; /* Максимальная ширина поля */
+    }
+.portfolio-item {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column; /* Изменяем направление на колонку */
+    align-items: center; /* Выравниваем по центру */
+}
+
+.main-image {
+    width: 100%; /* Изменяем размер главного изображения на 100% */
+    max-width: 250px; /* Максимальная ширина изображения */
+    height: auto;
+    cursor: pointer; /* Указатель при наведении */
+    margin-bottom: 10px; /* Отступ между изображением и текстом */
+}
+
+.portfolio-details {
+    text-align: center; /* Центрируем текст */
+    margin-bottom: 10px; /* Отступ между описанием и кнопками */
+}
+
+.gallery {
+    display: none; /* Скрываем галерею по умолчанию */
+    margin-top: 10px; /* Отступ сверху для галереи */
+}
+
+.toggle-gallery {
+    cursor: pointer; /* Указатель для стрелочки */
+    font-size: 20px; /* Размер стрелочки */
+    color: #007bff; /* Цвет стрелочки */
+    text-decoration: underline; /* Подчеркивание для ссылки */
+}
+
+button {
+    margin: 5px; /* Отступ между кнопками */
+    width: 100%; /* Кнопки занимают всю ширину */
+    max-width: 200px; /* Максимальная ширина кнопок */
+}
+
+.modal-content {
+    background-color: #343a40; /* Темный фон */
+    color: #ffffff; /* Светлый текст */
+}
+
+.modal-header,
+.modal-body {
+    border: none; /* Убираем границы */
+}
+
+.form-control {
+    background-color: rgba(73, 80, 87, 0.8); /* Полупрозрачный темный фон для полей ввода */
+    color: #ffffff; /* Светлый текст для полей ввода */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Полупрозрачная белая граница для полей ввода */
+}
+
+.portfolio-buttons {
+    display: flex; /* Используем flexbox для кнопок */
+    flex-direction: column; /* Выравниваем кнопки по вертикали */
+    align-items: center; /* Центрируем кнопки */
+    margin-top: 10px; /* Отступ между изображением и кнопками */
+}
+
+button {
+    margin: 5px; /* Отступ между кнопками */
+    width: 100%; /* Кнопки занимают всю ширину */
+    max-width: 200px; /* Максимальная ширина кнопок */
+}
+.gallery {
+    display: flex;
+    flex-wrap: wrap; /* Позволяет переносить элементы на следующую строку */
+    gap: 10px; /* Отступ между фотографиями */
+}
+
+.gallery div {
+    position: relative; /* Позволяет позиционировать кнопку удаления внутри блока */
+}
+
+.gallery img {
+    width: 300px; /* Ширина фотографии */
+    height: auto; /* Автоматическая высота для соблюдения пропорций */
+    cursor: pointer; /* Указатель при наведении */
+    transition: transform 0.2s; /* Плавный переход при наведении */
+}
+
+.gallery img:hover {
+    transform: scale(1.05); /* Увеличение изображения при наведении */
+}
+
+.delete-button {
+    display: none; /* Скрываем кнопку удаления по умолчанию */
+    position: absolute; /* Позиционируем кнопку относительно родительского блока */
+    top: 5px; /* Отступ сверху */
+    right: 5px; /* Отступ справа */
+}
+
+.gallery div:hover .delete-button {
+    display: block; /* Показываем кнопку удаления при наведении на изображение */
+}

@@ -1,0 +1,112 @@
+{% extends "admin_base.html" %}
+
+{% block style %}
+    <link rel="stylesheet" href="css/admin/style_admin_portfolios.css">
+    <link rel="stylesheet" href="css/styles_services.css">
+{% endblock %}
+
+
+
+{% block content %}
+<body>
+    <div class="container mt-5">
+        <h1>Список Портфолио</h1>
+        <button id="createPortfolioButton" class="btn btn-primary" data-toggle="modal" data-target="#createPortfolioModal">Создать портфолио</button>
+        <div id="portfolio-list" class="mt-4"></div>
+
+        <!-- Галерея -->
+        <div class="gallery" id="gallery-1" style="display: none;"></div>
+    </div>
+
+    <!-- Модальное окно для создания портфолио -->
+    <div class="modal fade" id="createPortfolioModal" tabindex="-1" role="dialog" aria-labelledby="createPortfolioModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="createPortfolioModalLabel">Создать новое портфолио</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Закрыть">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="createPortfolioForm">
+                        <div class="form-group">
+                            <label for="newTitle">Заголовок</label>
+                            <input type="text" class="form-control" id="newTitle" required placeholder="Введите заголовок">
+                        </div>
+                        <div class="form-group">
+                            <label for="newDescription">Описание</label>
+                            <textarea class="form-control" id="newDescription" required placeholder="Введите описание"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="newMainImage">Главное изображение</label>
+                            <input type="file" class="form-control-file" id="newMainImage" accept="image/*" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Создать</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно для формы портфолио -->
+    <div class="modal fade" id="portfolioModal" tabindex="-1" role="dialog" aria-labelledby="portfolioModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="portfolioModalLabel">Создать/Редактировать Портфолио</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Закрыть">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="portfolioForm">
+                        <div class="form-group">
+                            <label for="title">Заголовок</label>
+                            <input type="text" class="form-control" id="title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Описание</label>
+                            <textarea class="form-control" id="description" required></textarea>
+                        </div>
+                        <input type="hidden" id="portfolioId">
+                        <button type="submit" class="btn btn-primary">Сохранить заголовок и описание</button>
+                    </form>
+                    <hr>
+                    <div class="form-group">
+                        <label for="mainImage">Изменить главное изображение</label>
+                        <input type="file" class="form-control-file" id="mainImage" accept="image/*">
+                        <button type="button" class="btn btn-secondary mt-2" id="changeMainImageButton">Сохранить главное изображение</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Модальное окно для увеличенного изображения -->
+<div class="modal fade" id="photoModal" tabindex="-1" role="dialog" aria-labelledby="photoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document"> <!-- Используем класс modal-lg для увеличения размера -->
+        <div class="modal-content2">
+            <div class="modal-header">
+                <h5 class="modal-title" id="photoModalLabel">Наша работа</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Закрыть">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img id="modalImage" src="" alt="Увеличенное изображение" style="width: 100%; height: auto; border-radius: 10px;">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+{% block scripts %}
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="scripts/admin/script_portfolio_facad.js"></script>
+{% endblock %}
+

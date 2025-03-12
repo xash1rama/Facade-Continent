@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facade Continent - Главная</title>
+    <link rel="icon" href="image/ico.ico" type="image/png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles_index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header class="text-white">
+
+        <div class="container d-flex justify-content-between align-items-center mt-5">
+                <img src="image/image_main/logo.png" alt="Welcome Image" class="welcome-image">
+                <div class="welcome-text">
+                    <h2>Добро пожаловать!</h2>
+                    <p>Здесь вы найдете то, что искали!</p>
+                </div>
+
+
+
+
+            <div class="contact-info">
+                <div>
+                    <a href="tel:+{{ phone_main }}" class="telegram-icon" title="Телефон">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                    <span> {{ phone.data }} </span>
+                </div>
+                <div>
+                    <a href="mailto:{{ email.data }}" class="telegram-icon" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <span> {{ email.data }} </span>
+                </div>
+                <div>
+                    <a href="{{ telegram.data }}" class="telegram-icon" target="_blank" title="Telegram">
+                        <i class="fab fa-telegram-plane"></i>
+                    </a>
+                    <span>Наши новости!</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="/">Главная</a></li>
+
+                <li class="nav-item"><a class="nav-link" href="/service_facade">Фасад</a></li>
+
+                <li class="nav-item"><a class="nav-link" href="/service_roof">Кровля</a></li>
+
+                <li class="nav-item"><a class="nav-link" href="/portfolio_facade">Наши фасады</a></li>
+
+                <li class="nav-item"><a class="nav-link" href="/portfolio_roof">Наши кровли</a></li>
+
+                <li class="nav-item"><a class="nav-link" href="/about">О нас</a></li>
+
+                <li class="nav-item"><a class="nav-link" href="/contacts">Контакты</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="collaboration-steps">
+   <h1 class="info-text large-text">Переходите к нашим услугам и узнайте стоимость вашей идеи!</h1>
+
+<div class="button-container">
+    <a href="/service_facade" class="button-left">
+        <img src="image/image_main/uslugafacade.jpg" alt="Фасад" class="button-image">
+        <h3>Фасад</h3>
+        <p>Познакомьтесь с нашими предложениями по фасадным работам!</p>
+    </a>
+    <a href="/service_roof" class="button-right">
+        <img src="image/image_main/ulsugiroof.jpg" alt="Кровля" class="button-image">
+        <h3>Кровля</h3>
+        <p>Откройте для себя все преимущества наших кровельных услуг!</p>
+    </a>
+</div>
+</section>
+
+
+
+<section id="main" class="text-center d-flex justify-content-between align-items-center background-image">
+    <div class="image-column">
+        <img src="image/image_main/logo.png" alt="Описание изображения" class="main-image">
+    </div>
+    <div class="text-column">
+        <h1 class="info-text large-text">Строительная компания Facade Continent</h1>
+        <p>Мы — команда страстных профессионалов, объединённых одной целью: обеспечить нашим клиентам качественные и надёжные решения в области кровли и фасадов.
+        Наша опытная команда успешно работает в строительной отрасли, завоевав доверие множества клиентов благодаря аккуратности и высокому качеству выполнения работ.</р>
+        <h1>Мы превратим ваши идеи в реальность!</h1>
+        <div class="divider"></div> <!-- Полоска разделения -->
+        <a href="/about" class="slide-button12">О нас</a>
+    </div>
+</section>
+
+
+<section class="collaboration-steps2">
+    <div class="container2">
+        <h2 class="section-title2">Этапы сотрудничества</h2>
+        <div class="steps-list2">
+            <div class="step2">
+                <div class="step-number2">
+                <img src="image/pervoe.png" alt="Иконка" class="icon2" />
+                </div>
+                <div class="step-description2">
+                    <h3>Обсуждаем детали строительного проекта</h3>
+                    <p>Отвечаем на все ваши вопросы</p>
+                </div>
+            </div>
+            <div class="step2">
+                <div class="step-number2">
+                    <img src="image/plan.png" alt="Иконка" class="icon2" />
+                    </div>
+                <div class="step-description2">
+                    <h3>Договоримся о встрече</h3>
+                    <p>На встрече мы обсудим предложения и скорректируем объем</p>
+                </div>
+            </div>
+            <div class="step2">
+                <div class="step-number2">
+                    <img src="image/dogovor.png" alt="Иконка" class="icon2" />
+                </div>
+                <div class="step-description2">
+                   <h3>Подписываем договор на строительство</h3>
+                    <p>И приступаем к осуществлению работ.</p>
+                </div>
+            </div>
+            <div class="step2">
+                <div class="step-number2">
+                    <img src="image/dom.png" alt="Иконка" class="icon2" />
+                </div>
+                <div class="step-description2">
+                    <h3>Реализуем проект мечты</h3>
+                    <p>И сдаем его счастливому владельцу.</p>
+                </div>
+            </div>
+
+        </div>
+<div class="divider"></div> <!-- Полоска разделения -->
+        <a href="/contacts" class="slide-button12">Связаться с нами!</a>
+    </div>
+</section>
+
+<section id="main" class="text-center d-flex justify-content-between align-items-center background-image">
+
+    <div class="text-column">
+        <h3>Добро пожаловать в наш калькулятор!</h3>
+        <p>С помощью нашего инструмента вы сможете быстро рассчитать стоимость фасада и кровли вашего дома, учитывая уникальные потребности вашего проекта.
+            Получите прозрачный расчет на основе актуальных цен и материалов, сравните варианты, выберите подходящий для вашего бюджета и
+            поймите структуру затрат для обоснованных решений на каждом этапе строительства. Наша команда профессионалов готова помочь вам в этом процессе!</p>
+        <p>Попробуйте калькулятор прямо сейчас и начните планировать свой идеальный фасад и крышу!</p>
+        <div class="divider"></div> <!-- Полоска разделения -->
+        <a href="/service_facade" class="slide-button12">Фасад</a> <a href="/service_roof" class="slide-button12">Кровля</a>
+
+    </div>
+    <div class="image-column">
+        <img src="image/image_main/calc.jpg" alt="Описание изображения" class="main-image">
+    </div>
+</section>
+
+
+<section id="main" class="text-center d-flex justify-content-between align-items-center background-image">
+    <div class="image-column">
+        <img src="image/image_main/facade1.png" alt="Описание изображения" class="main-image">
+    </div>
+    <div class="text-column">
+        <h1 class="info-text large-text">Фасад — это не просто внешняя оболочка здания</h1>
+        <p>Это визитная карточка вашего дома или коммерческого объекта. В нашей компании Facade Continent мы настоятельно верим,
+            что качественный фасад должен сочетать
+            в себе не только эстетическую привлекательность,
+            но и высокие технологические характеристики.</p>
+        <h1>Технологичность в каждой детали</h1>
+        <p>Наши фасады разрабатываются с использованием новейших технологий и материалов,
+            что позволяет гарантировать долговечность и устойчивость к внешним воздействиям.
+            Благодаря современным изоляционным материалам, ваши помещения будут оставаться теплыми зимой и прохладными летом,
+            что сведет к минимуму затраты на отопление и кондиционирование.</p>
+    </div>
+</section>
+
+
+<section class="collaboration-steps4">
+    <div class="container2">
+        <h2 class="section-title2">Основные этапы монтажа фасада</h2>
+        <div class="steps-list2">
+            <div class="step2">
+                <div class="step-number2">
+                    <h3>1</h3>
+                </div>
+                <div class="step-description2">
+                    <h3>Начальные работы</h3>
+                    <h6 style="color: black;">На этом этапе проводятся все необходимые подготовительные действия, такие как очистка и грунтовка стен</h6>
+                </div>
+            </div>
+            <div class="step2">
+                <div class="step-number2">
+                    <h3>2</h3>
+                    </div>
+                <div class="step-description2">
+                    <h3>Основные работы</h3>
+                    <h6 style="color: black;"> Это важный этап, который обеспечивает надежность и
+                        долговечность конструкции, а также повышает энергетическую эффективность дома</h6>
+                </div>
+            </div>
+            <div class="step2">
+                <div class="step-number2">
+                    <h3>3</h3>
+                </div>
+                <div class="step-description2">
+                   <h3>Финишные работы</h3>
+                   <h6 style="color: black;">Этот этап придает вашему коттеджу окончательный вид и подчеркивает его стиль и индивидуальность</h6>
+
+                </div>
+            </div>
+            <div class="step2">
+                <div class="step-number2">
+                    <h3>4</h3>
+                </div>
+                <div class="step-description2">
+                    <h3>Сдача объекта</h3>
+                    <h6 style="color: black;">Вы получаете готовый фасад, который соответствует всем вашим требованиям и ожиданиям 🖤</h6>
+                </div>
+            </div>
+        </div>
+<div class="divider"></div> <!-- Полоска разделения -->
+        <a href="/service_facade" class="slide-button12">Услуги</a>     <a href="/portfolio_facade" class="slide-button12">Портфолио</a>
+    </div>
+</section>
+
+<div class="custom-slider-container">
+    <div class="custom-slider">
+        <div class="custom-slide">
+            <div class="custom-image" style="background-image: url('image/slide_facade_price/decorativka.jpg');">
+                <div class="custom-info">
+                    <p class="custom-description">Отделка декоративной штукатуркой</p>
+                    <p class="custom-price">Цена: от 1000 руб/м² </p>
+                </div>
+            </div>
+            <div class="custom-image" style="background-image: url('image/slide_facade_price/planken.jpg');">
+                <div class="custom-info">
+                    <p class="custom-description">Отделка планкеном</p>
+                    <p class="custom-price">Цена: от 1500 руб/м²  </p>
+                </div>
+            </div>
+            <div class="custom-image" style="background-image: url('image/slide_facade_price/kamen.jpg');">
+                <div class="custom-info">
+                    <p class="custom-description">Отделка искусственным или натуральным камнем</p>
+                    <p class="custom-price">Цена: от 2500 руб/м² </p>
+                </div>
+            </div>
+        </div>
+        <div class="custom-slide">
+            <div class="custom-image" style="background-image: url('image/slide_facade_price/klinker.jpg');">
+                <div class="custom-info">
+                    <p class="custom-description">Отделка клинкерной плиткой</p>
+                    <p class="custom-price">Цена: от 2700 руб/м²</p>
+                </div>
+            </div>
+            <div class="custom-image" style="background-image: url('image/slide_facade_price/dekori.jpg');">
+                <div class="custom-info">
+                    <p class="custom-description">Монтаж декор-элементов</p>
+                    <p class="custom-price">Цена: от 500р м/п</p>
+                </div>
+            </div>
+            <div class="custom-image" style="background-image: url('image/slide_facade_price/vizah.jpg');">
+                <div class="custom-info">
+                    <p class="custom-description">Отделка моделлирующей декоративной штукатуркой</p>
+                    <p class="custom-price">Цена: от 1300 руб/м²</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="custom-arrow left-custom-arrow">←</button>
+    <button class="custom-arrow right-custom-arrow">→</button>
+</div>
+<div class="custom-dots-container">
+    <span class="custom-dot" data-index="0"></span>
+    <span class="custom-dot" data-index="1"></span>
+</div>
+
+
+<section id="main" class="text-center d-flex justify-content-between align-items-center background-image">
+    <div class="text-column">
+        <h1 class="info-text large-text">Технологичность кровли, проверенная временем</h1>
+        <p>В Facade Continent мы уверены, что качественная кровля — это не только натяжение материалов, но и искусство,
+            которое сочетает в себе надежность и стиль. Когда речь идет о выборе кровельных материалов, мы используем лишь
+            самые современные технологии и высококачественные материалы. Наша кровля обеспечит надежную защиту от осадков,
+            ветра и ультрафиолета. Не говоря уже о том,
+            что наше утепление позволит вам сэкономить на отоплении зимой и поддерживать комфортную температуру летом.</p>
+        <h1>Практичность на высоте</h1>
+        <p>В Facade Continent мы понимаем, насколько важен уход за кровлей. Поэтому мы предлагаем материалы,
+            которые легко чистятся и поддаются ремонту, если это необходимо.
+            Вы сможете наслаждаться красивой и долговечной кровлей, не беспокоясь о сложном уходе.</p>
+    </div>
+    <div class="image-column">
+        <img src="image/image_main/tehno_roof.png" alt="Описание изображения" class="main-image">
+    </div>
+</section>
+
+<section class="collaboration-steps5">
+    <div class="container2">
+        <h2 class="section-title2">Основные этапы монтажа кровли</h2>
+        <div class="steps-list2">
+            <div class="step2">
+                <div class="step-number2">
+                    <h3>1</h3>
+                </div>
+                <div class="step-description2">
+                    <h3>Начальные работы</h3>
+                    <h6 style="color: black;">На этом этапе проводится оценка состояния стропильной системы и очистка крыши от старых материалов</h6>
+                </div>
+            </div>
+            <div class="step2">
+                <div class="step-number2">
+                    <h3>2</h3>
+                    </div>
+                <div class="step-description2">
+                    <h3>Устройство стропильной системы</h3>
+                    <h6 style="color: black;">Здесь происходит монтаж стропил, которые являются основой для крыши</h6>
+                </div>
+            </div>
+            <div class="step2">
+                <div class="step-number2">
+                    <h3>3</h3>
+                </div>
+                <div class="step-description2">
+                   <h3>Гидроизоляция и утепление</h3>
+                   <h6 style="color: black;">Это очень важные шаги для повышения энергоэффективности</h6>
+
+                </div>
+            </div>
+            <div class="step2">
+                <div class="step-number2">
+                    <h3>4</h3>
+                </div>
+                <div class="step-description2">
+                    <h3>Монтаж кровельного покрытия</h3>
+                    <h6 style="color: black;">Завершающий этап включает укладку кровельного покрытия, которое может быть выполнено из различных материалов</h6>
+                </div>
+            </div>
+        </div>
+<div class="divider"></div> <!-- Полоска разделения -->
+        <a href="/service_roof" class="slide-button12">Услуги</a>    <a href="/portfolio_roof" class="slide-button12">Портфолио</a>
+    </div>
+</section>
+
+
+<div class="custom-slider-container2">
+    <div class="custom-slider2">
+        <div class="custom-slide2">
+            <div class="custom-image2" style="background-image: url('image/slide_roof_price/metallocherepica.jpg');">
+                <div class="custom-info2">
+                    <p class="custom-description">Монтаж металлочерепицы</p>
+                    <p class="custom-price">Цена: от 2000 руб/м²</p>
+                </div>
+            </div>
+            <div class="custom-image2" style="background-image: url('image/slide_roof_price/cementno.jpg');">
+                <div class="custom-info2">
+                    <p class="custom-description">Монтаж цементно-песчаной черепицы</p>
+                    <p class="custom-price">Цена: от 2500 руб/м²</p>
+
+                </div>
+            </div>
+            <div class="custom-image2" style="background-image: url('image/slide_roof_price/gibkaya.jpg');">
+                <div class="custom-info2">
+                    <p class="custom-description">Монтаж гибкой черепицы</p>
+                    <p class="custom-price">Цена: от 2000 руб/м²</p>
+                </div>
+            </div>
+        </div>
+        <div class="custom-slide2">
+            <div class="custom-image2" style="background-image: url('image/slide_roof_price/model_cherepica.jpeg');">
+                <div class="custom-info">
+                    <p class="custom-description">Монтаж модульной черепицы</p>
+                    <p class="custom-price">Цена: от 1900 руб/м²</p>
+                </div>
+            </div>
+            <div class="custom-image2" style="background-image: url('image/slide_roof_price/falc.jpg');">
+                <div class="custom-info2">
+                    <p class="custom-description">Монтаж фальцевой кровли</p>
+                    <p class="custom-price">Цена: от 2100 руб/м²</p>
+                </div>
+            </div>
+            <div class="custom-image2" style="background-image: url('image/slide_roof_price/keramika.jpg');">
+                <div class="custom-info2">
+                    <p class="custom-description">Монтаж керамической черепицы</p>
+                    <p class="custom-price">Цена: от 2000 руб/м²</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="custom-arrow2 left-custom-arrow2">←</button>
+    <button class="custom-arrow2 right-custom-arrow2">→</button>
+</div>
+<div class="custom-dots-container2">
+    <span class="custom-dot2" data-index="0"></span>
+    <span class="custom-dot2" data-index="1"></span>
+</div>
+
+
+    <section id="main" class="text-center background-image">
+            <div class="text-column2">
+        <h1 class="info-text large-text">🌟 Качество и надежность — наш главный приоритет! 🌟</h1>
+        <h6>Мы используем бренды, которые используют самые современные технологии и инновации в производстве своих материалов.
+            Это гарантирует, что каждый элемент, используемый в ваших фасадах,
+            будет соответствовать самым строгим стандартам качества и обеспечит вашему дому защиту от внешних факторов.</h6>
+        <h6>Наша команда тщательно отбирает каждого производителя, чтобы быть уверенными, что вы получаете только лучшее.
+            Мы предоставляем широкий ассортимент самых современных и стильных решений, которые не только оберегут ваше жилье,
+            но и придадут ему уникальный вид. </h6>
+        <h6>Выбирая Facade Continent, вы выбираете надежность, стиль и качество! Ведь ваш дом заслуживает только лучшего.
+            Давайте вместе создадим пространство, в котором будет комфортно и уютно жить! </h6>
+
+    </div>
+</section>
+
+
+
+
+    <div class="slider1">
+        <div class="slide1"><img src="image/slide_houses/slide1.jpg" alt="Дом 1"></div>
+        <div class="slide1"><img src="image/slide_houses/slide2.jpg" alt="Дом 2"></div>
+        <div class="slide1"><img src="image/slide_houses/slide3.jpg" alt="Дом 3"></div>
+        <div class="slide1"><img src="image/slide_houses/slide4.jpg" alt="Дом 4"></div>
+        <div class="slide1"><img src="image/slide_houses/slide5.jpg" alt="Дом 5"></div>
+        <div class="slide1"><img src="image/slide_houses/slide6.jpg" alt="Дом 6"></div>
+        <div class="slide1"><img src="image/slide_houses/slide7.jpg" alt="Дом 7"></div>
+        <div class="slide1"><img src="image/slide_houses/slide8.jpg" alt="Дом 8"></div>
+        <div class="slide1"><img src="image/slide_houses/slide9.jpeg" alt="Дом 9"></div>
+        <div class="slide1"><img src="image/slide_houses/slide10.jpg" alt="Дом 10"></div>
+        <div class="slide1"><img src="image/slide_houses/slide11.jpg" alt="Дом 11"></div>
+        <div class="slide1"><img src="image/slide_houses/slide12.jpg" alt="Дом 12"></div>
+        <div class="slide1"><img src="image/slide_houses/slide13.jpeg" alt="Дом 13"></div>
+        <div class="slide1"><img src="image/slide_houses/slide14.jpg" alt="Дом 14"></div>
+        <div class="slide1"><img src="image/slide_houses/slide15.jpg" alt="Дом 15"></div>
+        <div class="slide1"><img src="image/slide_houses/slide16.jpg" alt="Дом 16"></div>
+    </div>
+
+
+<h2>Часто задаваемые вопросы</h2>
+<div class="faq-container">
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleAnswer(this)">
+            <h4>Какова стоимость строительства?</h4>
+            <span class="arrow1">&#9654;</span> <!-- Стрелочка вправо -->
+        </div>
+        <div class="faq-answer">
+            <h6>Стоимость строительства зависит от множества факторов, включая размер проекта, используемые материалы, сложность работ и местоположение. Мы можем предоставить предварительный расчет после обсуждения всех деталей.</h6>
+        </div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleAnswer(this)">
+            <h4>Как долго продлится строительство?</h4>
+            <span class="arrow1">&#9654;</span>
+        </div>
+        <div class="faq-answer">
+            <h6>Сроки зависят от объема работ и погодных условий. Обычно мы предоставляем предварительный график на этапе планирования, который может быть скорректирован по мере выполнения работ.</h6>
+        </div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleAnswer(this)">
+            <h4>Как вы контролируете качество работ?</h4>
+            <span class="arrow1">&#9654;</span>
+        </div>
+        <div class="faq-answer">
+            <h6>Мы проводим регулярные проверки на всех этапах строительства, а также используем только сертифицированные материалы. Кроме того, у нас есть команда опытных специалистов, отвечающих за контроль качества.</h6>
+        </div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleAnswer(this)">
+            <h4>Как происходит процесс оплаты?</h4>
+            <span class="arrow1">&#9654;</span>
+        </div>
+        <div class="faq-answer">
+            <h6> Мы обычно работаем поэтапно. Оплата производится по завершении каждого этапа работ, что позволяет контролировать расходы и качество выполнения.</h6>
+        </div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleAnswer(this)">
+            <h4>Предоставляете ли вы гарантии на выполненные работы?</h4>
+            <span class="arrow1">&#9654;</span>
+        </div>
+        <div class="faq-answer">
+            <h6>Да, мы предоставляем гарантии на все виды работ. Срок гарантии зависит от типа работ и используемых материалов.</h6>
+        </div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleAnswer(this)">
+            <h4>Как выбрать материалы для строительства?</h4>
+            <span class="arrow1">&#9654;</span>
+        </div>
+        <div class="faq-answer">
+            <h6>Мы можем помочь вам в выборе материалов, основываясь на вашем бюджете, предпочтениях и требованиях к проекту.</h6>
+        </div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleAnswer(this)">
+            <h4>Как можно связаться с вами в процессе строительства?</h4>
+            <span class="arrow1">&#9654;</span>
+        </div>
+        <div class="faq-answer">
+            <h6>Вы можете связаться с нами по:</h6>
+            <h6>Телефону: {{ phone.data }} </h6>
+            <h6>Электронной почте: {{ email.data }}</h6>
+            <h6>или через мессенджеры.</h6>
+            <h6>Мы также предоставим вам контактные данные ответственного за проект.</h6>
+        </div>
+    </div>
+</div>
+
+
+
+    <!-- Добавляем секцию с логотипами -->
+    <div class="brand-logos">
+        <h4>Мы используем материалы лучших брендов:</h4>
+        <div class="logo-container">
+            <a href="https://ceresit.ru/" target="_blank">
+                <img src="image/brands/brand1.webp" alt="ceresit" class="brand-logo">
+            </a>
+            <a href="https://www.tn.ru/" target="_blank">
+                <img src="image/brands/brand2.jpg" alt="tehno" class="brand-logo">
+            </a>
+            <a href="https://knauf.ru/" target="_blank">
+                <img src="image/brands/brand3.jpg" alt="knauf" class="brand-logo">
+            </a>
+            <a href="https://www.braas.ru/" target="_blank">
+                <img src="image/brands/brand4.jpg" alt="braas" class="brand-logo">
+            </a>
+            <a href="https://www.docke.ru/" target="_blank">
+                <img src="image/brands/brand5.webp" alt="docke" class="brand-logo">
+            </a>
+            <a href="https://baumitshop.ru/" target="_blank">
+                <img src="image/brands/brand6.webp" alt="baumit" class="brand-logo">
+            </a>
+        </div>
+    </div>
+
+
+<div class="social-buttons">
+    <a href="{{ link_bot.data }}" class="social-button telegram" target="_blank" title="Telegram">
+        <i class="fab fa-telegram-plane"></i>
+    </a>
+    <a href="viber://add?number=+{{ phone_main }}" class="social-button viber" target="_blank" title="Viber">
+        <i class="fab fa-viber"></i>
+    </a>
+    <a href="https://wa.me/+{{ phone_main }}" class="social-button whatsapp" target="_blank" title="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</div>
+
+
+
+
+<footer class="text-white" style="background-color: #000; padding: 20px 0;">
+    <div class="container" style="max-width: 1140px; margin: 0 auto;">
+        <div class="d-flex justify-content-between align-items-center" style="height: 100%;">
+            <div class="logo">
+                <a href="/">
+                    <img src="image/image_main/logo.png" alt="Логотип" style="height: 80px;">
+                </a>
+            </div>
+            <div class="footer-links d-flex justify-content-center align-items-center">
+                <a href="/about" class="footer-link">О нас</a>
+                <a href="/service_facade" class="footer-link">Услуги фасада</a>
+                <a href="/service_roof" class="footer-link">Услуги кровли</a>
+                <a href="/portfolio_facade" class="footer-link">Портфолио фасада</a>
+                <a href="/portfolio_roof" class="footer-link">Портфолио кровли</a>
+            </div>
+            <div class="contact-info d-flex flex-column align-items-end">
+                <div>
+                    <a href="tel:+{{ phone_main }}" class="footer-icon" title="Телефон">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                    <span> {{ phone.data }} </span>
+                </div>
+                <div>
+                    <a href="mailto:{{ email.data }}" class="footer-icon" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <span> {{ email.data }} </span>
+                </div>
+                <div>
+                    <a href="{{ telegram.data }}" class="telegram-icon" target="_blank" title="Telegram">
+                        <i class="fab fa-telegram-plane"></i>
+                    </a>
+                    <span>Наши новости!</span>
+                </div>
+                <div>
+                    <span>Адрес:</span>
+                </div>
+                <div>
+                    <span>Красногорский р-н</span>
+                </div>
+                <div>
+                    <span>Ильинско-Усово</span>
+                </div>
+                <div>
+                    <span>ул.Архангельская 6</span>
+                </div>
+            </div>
+        </div>
+        <h6>&copy; 2025 Facade Continent. Все права защищены.</h6>
+        <h6>Разработано <a href="https://t.me/xash1rama" target="_blank">xash1rama</a></h6>
+    </div>
+</footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="scripts/script_index.js"></script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+{% extends "admin_base.html" %}
+
+{% block style %}
+    <link rel="stylesheet" href="css/admin/style_admin.css">
+    <link rel="stylesheet" href="css/styles_services.css">
+{% endblock %}
+
+
+
+{% block content %}
+<div class="table-container">
+    <h1 class="text-center text-white">Данные на сайте</h1>
+    <table class="compact-table" id="siteDataTable">
+        <thead>
+            <tr>
+                <th>Название</th>
+                <th>Значение</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for info in informs %}
+            <tr>
+                <td>{{ info.name }}</td>
+                <td>{{ info.data }}</td>
+                <td>
+                    <button class="btn btn-warning btn-sm" onclick="showForm3('edit', 'data', {{ info.id }}, '{{ info.name }}', '{{ info.data }}')">
+                        <i class="fas fa-edit"></i> Изменить
+                    </button>
+    <!--                    <button class="btn btn-danger btn-sm" onclick="deleteItem3('data', {{ info.id }})">-->
+    <!--                        <i class="fas fa-trash"></i> Удалить-->
+    <!--                    </button>-->
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+<!--    <button class="btn btn-success btn-lg btn-block" onclick="showForm3('add', 'data')">-->
+<!--        <i class="fas fa-plus"></i> Добавить новое значение-->
+<!--    </button>-->
+
+<!-- Форма для добавления/изменения данных -->
+<div id="dataFormModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content bg-dark text-white rounded shadow-lg">
+            <div class="modal-header border-bottom-0">
+                <h5 class="modal-title" id="modalTitle">Добавить новое значение</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="dataForm">
+                    <input type="hidden" id="dataId" name="dataId">
+                    <!-- Убрано поле "Название", добавлено скрытое поле для передачи значения -->
+                    <input type="hidden" id="dataName" name="dataName">
+                    <div class="form-group mb-2">
+                        <label for="dataValue">Значение</label>
+                        <input type="text" class="form-control bg-secondary text-white border-0" id="dataValue" name="dataValue" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer border-top-0">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                <button type="button" class="btn btn-success" id="submitDataBtn">Сохранить</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+<h2>Редактирование / Добавление / Удаление - Услуг</h2>
+    <div class="button-container">
+    <a href="/admin_prices_facade" class="button-left">
+        <img src="image/slide_facade_price/planken.jpg" alt="Фасад" class="button-image">
+        <h3>Управление ценами Фасада</h3>
+        <p>Редактирование таблицы фасадных услуг</p>
+    </a>
+    <a href="/admin_prices_roof" class="button-right">
+        <img src="image/slide_roof_price/keramika.jpg" alt="Кровля" class="button-image">
+        <h3>Управление ценами кровли</h3>
+        <p>Редактирование таблицы кровельных услуг</p>
+    </a>
+</div>
+<h2>Редактирование / Добавление / Удаление - Кейсов</h2>
+    <div class="button-container">
+    <a href="/admin_portfolio_facade" class="button-left">
+        <img src="image/slide_facade_price/klinker.jpg" alt="Фасад" class="button-image">
+        <h3>Управление Портфолио Фасада</h3>
+        <p>Редактирование фотографий портфолио фасадных работ</p>
+    </a>
+
+    <a href="/admin_portfolio_roof" class="button-right">
+        <img src="image/slide_roof_price/falc.jpg" alt="Кровля" class="button-image">
+        <h3>Управление Портфолио кровли</h3>
+        <p>Редактирование фотографий портфолио кровельных работ</p>
+    </a>
+</div>
+    <h2>Просмотр / Удаление - Заявок обратной связи</h2>
+    <div class="button-container">
+    <a href="/admin_orders" class="button-left">
+        <img src="image/zayavka.png" alt="Заявка" class="button-image">
+        <h3>Заявку на обратную связь</h3>
+        <p>Просмотр и удаление заявок на обратную связь</p>
+    </a>
+    <a href="https://facade-continent.ru:3000/" class="button-right">
+        <img src="image/grafana.webp" alt="Grafana" class="button-image">
+        <h3>Смотреть метрики</h3>
+        <p>Смотреть статистику нагреженности приложения</p>
+    </a>
+</div>
+{% endblock %}
+
+
+
+{% block scripts %}
+    <script src="scripts/admin/script_admin_main.js"></script>
+{% endblock %}
+
+
+
+
+
+
+

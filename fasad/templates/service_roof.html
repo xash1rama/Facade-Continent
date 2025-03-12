@@ -1,0 +1,222 @@
+{% extends "base.html" %}
+
+
+
+{% block title %}
+Facade Continent - Кровли
+{% endblock %}
+
+
+
+{% block style %}
+    <link rel="stylesheet" href="css/styles_services.css"> <!-- Подключение CSS файла -->
+    <link rel="stylesheet" href="css/styles_index.css"> <!-- Подключение CSS файла -->
+{% endblock %}
+
+
+
+{% block content %}
+
+<h2>Цены наших кровельных услуг под ключ:</h2>
+
+<!-- Стрелочка -->
+<div class="scroll-indicator">
+    <div class="arrow"></div>
+</div>
+<!-- Стрелочка -->
+
+
+<div class="custom-slider-container2">
+    <div class="custom-slider2">
+        <div class="custom-slide2">
+            <div class="custom-image2" style="background-image: url('image/slide_roof_price/metallocherepica.jpg');">
+                <div class="custom-info2">
+                    <p class="custom-description">Монтаж металлочерепицы</p>
+                    <p class="custom-price">Цена: от 2000 руб/м²</p>
+<!--                    <a href="service_facade.html" class="slide-button">Подробнее</a>-->
+                </div>
+            </div>
+            <div class="custom-image2" style="background-image: url('image/slide_roof_price/cementno.jpg');">
+                <div class="custom-info2">
+                    <p class="custom-description">Монтаж цементно-песчаной черепицы</p>
+                    <p class="custom-price">Цена: от 2500 руб/м²</p>
+<!--                    <a href="service_facade.html" class="slide-button">Подробнее</a>-->
+
+                </div>
+            </div>
+            <div class="custom-image2" style="background-image: url('image/slide_roof_price/gibkaya.jpg');">
+                <div class="custom-info2">
+                    <p class="custom-description">Монтаж гибкой черепицы</p>
+                    <p class="custom-price">Цена: от 2000 руб/м²</p>
+<!--                    <a href="service_facade.html" class="slide-button">Подробнее</a>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="custom-arrow2 left-custom-arrow2">←</button>
+    <button class="custom-arrow2 right-custom-arrow2">→</button>
+</div>
+
+<div class="custom-slider-container">
+    <div class="custom-slider">
+        <div class="custom-slide2">
+            <div class="custom-image2" style="background-image: url('image/slide_roof_price/model_cherepica.jpeg');">
+                <div class="custom-info">
+                    <p class="custom-description">Монтаж модульной черепицы</p>
+                    <p class="custom-price">Цена: от 1900 руб/м²</p>
+<!--                    <a href="service_facade.html" class="slide-button">Подробнее</a>-->
+                </div>
+            </div>
+            <div class="custom-image2" style="background-image: url('image/slide_roof_price/falc.jpg');">
+                <div class="custom-info2">
+                    <p class="custom-description">Монтаж фальцевой кровли</p>
+                    <p class="custom-price">Цена: от 2100 руб/м²</p>
+<!--                    <a href="service_facade.html" class="slide-button">Подробнее</a>-->
+                </div>
+            </div>
+            <div class="custom-image2" style="background-image: url('image/slide_roof_price/keramika.jpg');">
+                <div class="custom-info2">
+                    <p class="custom-description">Монтаж керамической черепицы</p>
+                    <p class="custom-price">Цена: от 2000 руб/м²</p>
+<!--                <a href="service_facade.html" class="slide-button">Подробнее</a>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <a href="/contacts" class="slide-button">Связаться с нами!</a>
+
+
+<div class="divider"></div> <!-- Полоска разделения -->
+
+
+
+<h1>Стоимость наших основных услуг</h1>
+<h4>Жмите ➕ и узнавайте стоимость вашего фасада</h4>
+
+
+<!-- Стрелочка -->
+<div class="scroll-indicator">
+    <div class="arrow"></div>
+</div>
+<!-- Стрелочка -->
+
+<h1 class="text-center title">Подготовительные услуги</h1>
+<div class="table-container">
+    <table class="compact-table" id="startFacadeWorksTable">
+        <thead>
+            <tr>
+                <th>Вид работы</th>
+                <th>Ед</th>
+                <th>Стоимость</th>
+                <th>
+            <img src="/image/shop.ico" alt="Корзина" style="width:20px; height:20px; vertical-align: middle;">
+        </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for facade in roof_start %}
+            <tr>
+                <td>{{ facade.name }}</td>
+                <td>{{ facade.measure }}</td>
+                <td>от {{ facade.price }} р.</td>
+                <td>
+                    <button class="btn btn-compact add-volume" data-price="{{ facade.price }}">+</button>
+                    <div class="volume-input" style="display:none;">
+                        <input type="number" class="form-control volume" placeholder="Объем" min="0" value="">
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<h1 class="text-center title">Базовые услуги</h1>
+<div class="table-container">
+    <table class="compact-table" id="baseFacadeWorksTable">
+        <thead>
+            <tr>
+                <th>Вид работы</th>
+                <th>Ед</th>
+                <th>Стоимость</th>
+                <th>
+            <img src="/image/shop.ico" alt="Корзина" style="width:20px; height:20px; vertical-align: middle;">
+        </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for facade in roof_base %}
+            <tr>
+                <td>{{ facade.name }}</td>
+                <td>{{ facade.measure }}</td>
+                <td>от {{ facade.price }} р.</td>
+                <td>
+                    <button class="btn btn-compact add-volume" data-price="{{ facade.price }}">+</button>
+                    <div class="volume-input" style="display:none;">
+                        <input type="number" class="form-control volume" placeholder="Объем" min="0" value="">
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<h1 class="text-center title">Финишные услуги</h1>
+<div class="table-container">
+    <table class="compact-table" id="finishFacadeWorksTable">
+        <thead>
+            <tr>
+                <th>Вид работы</th>
+                <th>Ед</th>
+                <th>Стоимость</th>
+                <th>
+            <img src="/image/shop.ico" alt="Корзина" style="width:20px; height:20px; vertical-align: middle;">
+        </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for facade in roof_finish %}
+            <tr>
+                <td>{{ facade.name }}</td>
+                <td>{{ facade.measure }}</td>
+                <td>от {{ facade.price }} р.</td>
+                <td>
+                    <button class="btn btn-compact add-volume" data-price="{{ facade.price }}">+</button>
+                    <div class="volume-input" style="display:none;">
+                        <input type="number" class="form-control volume" placeholder="Объем" min="0" value="">
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<!-- Плавающее окно для общей суммы -->
+<div class="floating-sum" id="totalSumContainer">
+    <h2>Общая сумма: от <span id="totalSum">0.00</span> р.</h2>
+</div>
+
+
+
+<div class="text-column">
+        <h1 class="info-text large-text">Для более подробной информации</h1>
+        <p>Не стесняйтесь! Мы готовы помочь вам разобраться во всех нюансах.
+            Наш дружелюбный менеджер предоставит вам всю необходимую информацию.
+            С небольшими советами и профессиональными рекомендациями вы сможете выбрать идеальный вариант именно для вашего проекта.
+            Ваши идеи — это наш приоритет! 💬</p>
+        <div class="divider"></div> <!-- Полоска разделения -->
+        <a href="/contacts" class="slide-button">Связаться с нами</a>
+    </div>
+{% endblock %}
+
+
+
+{% block scripts %}
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="scripts/script_services.js"></script>
+{% endblock %}

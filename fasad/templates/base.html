@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}ТИТУЛ НА ВКЛАДКЕ{% endblock %}</title>
+    <link rel="icon" href="image/ico.ico" type="image/png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    {% block style %} <!--ЗДЕСЬ ПОДКЛЮЧАЮТСЯ СТИЛИ CSS -->{% endblock %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+<body>
+    <header class="text-white">
+        <div class="container d-flex justify-content-between align-items-center mt-5">
+            <div class="logo">
+                <a href="/">
+                    <img src="image/image_main/logo.png" alt="Логотип" style="height: 120px;">
+                </a>
+            </div>
+            <div class="contact-info">
+                <div>
+                    <a href="tel:+{{ phone_main }}" class="telegram-icon" title="Телефон">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                    <span> {{ phone.data }} </span>
+                </div>
+                <div>
+                    <a href="mailto:{{ email.data }}" class="telegram-icon" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <span> {{ email.data }} </span>
+                </div>
+                <div>
+                    <a href="{{ telegram.data }}" class="telegram-icon" target="_blank" title="Telegram">
+                        <i class="fab fa-telegram-plane"></i>
+                    </a>
+                    <span>Наши новости!</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="/">Главная</a></li>
+
+                <li class="nav-item"><a class="nav-link" href="/service_facade">Фасад</a></li>
+
+                <li class="nav-item"><a class="nav-link" href="/service_roof">Кровля</a></li>
+
+                <li class="nav-item"><a class="nav-link" href="/portfolio_facade">Наши фасады</a></li>
+
+                <li class="nav-item"><a class="nav-link" href="/portfolio_roof">Наши кровли</a></li>
+
+                <li class="nav-item"><a class="nav-link" href="/about">О нас</a></li>
+
+                <li class="nav-item"><a class="nav-link" href="/contacts">Контакты</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="slider-container">
+    <div class="slider">
+        <div class="slide active">
+            <img src="image/slide_head/slide-1.jpg" alt="Изображение 1">
+            <div class="slide-text">
+                <h1>Кейсы наших работ с фасадом</h1>
+                <h2>Найдите идеальное решение для вас!</h2>
+                <a href="/portfolio_facade" class="slide-button">Портфолио</a>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="image/slide_head/slide-2.jpg" alt="Изображение 2">
+            <div class="slide-text">
+                <h1>Портфолио кровельных работ</h1>
+                <h2>Узнайте, что мы можем сделать для вас и вашей кровли!</h2>
+                <a href="/portfolio_roof" class="slide-button">Портфолио</a>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="image/slide_head/slide-3.jpg" alt="Изображение 3">
+            <div class="slide-text">
+                <h1>Узнайте стоимость вашей кровли</h1>
+                <h2>Посмотрите стоимость услуг и посчитайте стоимость вашей кровли в одном месте!</h2>
+                <a href="service_roof" class="slide-button">Услуги кровли</a>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="image/slide_head/slide-4.jpg" alt="Изображение 4">
+            <div class="slide-text">
+                <h1>Посмотрите сколько стоит ваш фасад</h1>
+                <h2>В одном месте вы узнаете цены и посчитаете расходы на свой проект!</h2>
+                <a href="/service_facade" class="slide-button">Услуги фасада</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Кнопки навигации -->
+    <button class="nav-button prev" onclick="prevSlide()">❮</button>
+    <button class="nav-button next" onclick="nextSlide()">❯</button>
+</div>
+    <h1></h1>
+
+    <main>
+        {% block content %}
+        <!-- ЗДСЕСЬ ОСНОВНОЙ КОНТЕНТ -->
+        {% endblock %}
+    </main>
+
+
+
+    <!-- Добавляем секцию с логотипами -->
+<div class="brand-logos">
+    <h6>Мы используем материалы лучших брендов:</h6>
+    <div class="logo-container">
+        <a href="https://ceresit.ru/" target="_blank">
+            <img src="image/brands/brand1.webp" alt="ceresit" class="brand-logo">
+        </a>
+        <a href="https://www.tn.ru/" target="_blank">
+            <img src="image/brands/brand2.jpg" alt="tehno" class="brand-logo">
+        </a>
+        <a href="https://knauf.ru/" target="_blank">
+            <img src="image/brands/brand3.jpg" alt="knauf" class="brand-logo">
+        </a>
+        <a href="https://www.braas.ru/" target="_blank">
+            <img src="image/brands/brand4.jpg" alt="braas" class="brand-logo">
+        </a>
+        <a href="https://www.docke.ru/" target="_blank">
+            <img src="image/brands/brand5.webp" alt="docke" class="brand-logo">
+        </a>
+        <a href="https://baumitshop.ru/" target="_blank">
+            <img src="image/brands/brand6.webp" alt="baumit" class="brand-logo">
+        </a>
+     </div>
+</div>
+
+
+<div class="social-buttons">
+    <a href="{{ link_bot.data }}" class="social-button telegram" target="_blank" title="Telegram">
+        <i class="fab fa-telegram-plane"></i>
+    </a>
+    <a href="viber://add?number=+{{ phone_main }}" class="social-button viber" target="_blank" title="Viber">
+        <i class="fab fa-viber"></i>
+    </a>
+    <a href="https://wa.me/+{{ phone_main }}" class="social-button whatsapp" target="_blank" title="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</div>
+
+
+
+<footer class="text-white" style="background-color: #000; padding: 20px 0;">
+    <div class="container" style="max-width: 1140px; margin: 0 auto;">
+        <div class="d-flex justify-content-between align-items-center" style="height: 100%;">
+            <div class="logo">
+                <a href="/">
+                    <img src="image/image_main/logo.png" alt="Логотип" style="height: 80px;">
+                </a>
+            </div>
+            <div class="footer-links d-flex justify-content-center align-items-center">
+                <a href="/about" class="footer-link">О нас</a>
+                <a href="/service_facade" class="footer-link">Услуги фасада</a>
+                <a href="/service_roof" class="footer-link">Услуги кровли</a>
+                <a href="/portfolio_facade" class="footer-link">Портфолио фасада</a>
+                <a href="/portfolio_roof" class="footer-link">Портфолио кровли</a>
+            </div>
+            <div class="contact-info d-flex flex-column align-items-end">
+                <div>
+                    <a href="tel:+{{ phone_main }}" class="footer-icon" title="Телефон">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                    <span> {{ phone.data }} </span>
+                </div>
+                <div>
+                    <a href="mailto:{{ email.data }}" class="footer-icon" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <span> {{ email.data }} </span>
+                </div>
+                <div>
+                    <a href="{{ telegram.data }}" class="telegram-icon" target="_blank" title="Telegram">
+                        <i class="fab fa-telegram-plane"></i>
+                    </a>
+                    <span>Наши новости!</span>
+                </div>
+                <div>
+                    <span>Адрес:</span>
+                </div>
+                <div>
+                    <span>Красногорский р-н</span>
+                </div>
+                <div>
+                    <span>Ильинско-Усово</span>
+                </div>
+                <div>
+                    <span>ул.Архангельская 6</span>
+                </div>
+
+            </div>
+        </div>
+        <h6>&copy; 2025 Facade Continent. Все права защищены.</h6>
+        <h6>Разработано <a href="https://t.me/xash1rama" target="_blank">xash1rama</a></h6>
+    </div>
+</footer>
+    {% block scripts %}
+
+    {% endblock %}
+</body>
+</html>

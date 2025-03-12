@@ -1,0 +1,609 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #fff; /* Цвет текста */
+    background: linear-gradient(270deg, #001a33, #000000); /* Градиент от темно-синего к черному */
+    background-size: 400% 400%; /* Размер для анимации */
+    animation: gradientAnimation 10s ease infinite; /* Анимация */
+    padding: 50px 20px; /* Отступы вокруг текста */
+    text-align: center; /* Центрирование текста */
+}
+
+@keyframes gradientAnimation {
+    0% { background: #001a33; } /* Начало анимации: темно-синий */
+    50% { background: #000000; } /* Средина анимации: черный */
+    100% { background: #001a33; } /* Конец анимации: темно-синий */
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+
+/* ФОРМА ПРИ ОБНОВЛЕНИИ или СОЗДАНИИ ДАННЫХ */
+.form-control {
+    width: 90px; /* Ограничиваем ширину поля ввода */
+    color: white; /* Цвет текста белый */
+    background-color: rgba(255, 255, 255, 0.1); /* Полупрозрачный фон для лучшего контраста */
+    border: 1px solid #444; /* Темная граница для поля ввода */
+    border-radius: 5px; /* Закругленные углы */
+    padding: 5px; /* Отступ внутри поля ввода */
+}
+
+.form-control::placeholder {
+    color: white; /* Цвет текста плейсхолдера белый */
+    opacity: 0.7; /* Полупрозрачность плейсхолдера */
+}
+/* ФОРМА ПРИ ОБНОВЛЕНИИ или СОЗДАНИИ ДАННЫХ */
+
+
+
+
+
+
+/* ШАПКА СВЕРХУ */
+        header {
+            background: linear-gradient(135deg, #001a33, #000000); /* Темный синий градиент к темно-серому */
+            padding: 10px 0; /* Уменьшаем отступы сверху и снизу */
+        }
+        .logo img {
+            height: 280px; /* Увеличьте высоту логотипа */
+            width: auto; /* Автоматическая ширина для сохранения пропорций */
+        }
+
+
+            /* меню полоска сверху */
+            .navbar-nav .nav-link {
+                margin: 0 35px; /* Отступы между кнопками */
+                flex: 10; /* Растягиваем кнопки */
+                text-align: center; /* Центрируем текст кнопок */
+                transition: transform 0.3s ease, font-size 0.3s ease; /* Плавный переход для эффекта наведения */
+            }
+
+            .navbar-nav {
+                display: flex; /* Используем flex для выравнивания кнопок */
+                justify-content: center; /* Центрируем кнопки */
+                width: 100%; /* Ширина на всю ширину родителя */
+            }
+
+            .navbar-nav .nav-link:hover {
+                color: white !important; /* Устанавливаем цвет текста при наведении на белый */
+                font-weight: bold; /* Жирный текст при наведении */
+                transform: scale(1.1); /* Увеличиваем размер текста при наведении */
+            }
+
+            .navbar {
+                background-color: #000; /* Черный цвет для панели навигации */
+                position: fixed; /* Фиксируем панель */
+                top: 0; /* Прикрепляем к верхней части экрана */
+                width: 100%; /* Занимает всю ширину */
+                z-index: 1000; /* Повышаем уровень по сравнению с другими элементами */
+                transition: top 0.3s; /* Плавный переход при изменении положения */
+            }
+
+
+        /* контакты в шапке */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Выровнять по левой стороне */
+        }   .telegram-icon, .youtube-icon {
+            font-size: 1.5rem;
+            color: white;
+            margin-right: 15px; /* Отступ между иконками */
+        }
+
+/* ШАПКА СВЕРХУ */
+
+
+
+
+/* ПЕРВАЯ СЕКЦИЯ ГЛАВНАЯ СТРАНИЦА */
+#main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Центрируем элементы по вертикали */
+    padding: 180px 100px; /* Добавляем отступы */
+    background: none; /* Убираем фон */
+}
+
+.text-column2 {
+    flex: 50; /* Занимает 1 часть доступной ширины */
+    padding-right: 20px; /* Отступ справа для текстовой колонки */
+    text-align: center; /* Текст выравнивается слева */
+}
+.main-image {
+    max-width: 100%; /* максимальная ширина – 100% от родительского блока */
+    height: auto; /* высота будет определяться автоматически */
+}
+.image-column {
+    flex: 0 0 35%; /* или просто 'flex: 1; если хотите равномерно распределить */
+}
+.text-column {
+    flex: 0 0 63%; /* или просто 'flex: 1; если хотите равномерно распределить */
+}
+
+    /* БРЕНДЫ ЛОГО */
+    .brand-logos {
+        margin-top: 40px;
+    }
+
+    .logo-container {
+        margin: 20px 0;
+    }
+
+    .brand-logo {
+        width: 100px; /* Добавьте нужный вам размер */
+        height: auto;
+        transition: transform 0.5s; /* Анимация при наведении */
+    }
+
+    .brand-logo:hover {
+        transform: scale(1.2); /* Увеличение при наведении */
+    }
+    .brand-logos {
+        text-align: center; /* Выравнивание по центру */
+        margin-top: 40px;
+    }
+/* ПЕРВАЯ СЕКЦИЯ ГЛАВНАЯ СТРАНИЦА */
+
+
+
+
+
+
+/*кнопки ВАТСАТ ВАЙБ ТГ */
+.social-buttons {
+    position: fixed; /* Фиксированное положение */
+    right: 20px; /* Отступ от правого края */
+    top: 75%; /* Центрируем по вертикали */
+    transform: translateY(-50%); /* Смещаем вниз на половину высоты кнопок для центрирования */
+    display: flex; /* Выстраиваем кнопки в ряд */
+    flex-direction: column; /* Вертикальное расположение */
+    gap: 10px; /* Отступ между кнопками */
+    z-index: 1000; /* Верхний уровень отображения */
+}
+
+.social-button {
+    display: flex; /* Гибкий блок */
+    justify-content: center; /* Центрируем содержимое */
+    align-items: center; /* Центрируем по высоте */
+    background-color: #007bff; /* Цвет фона по умолчанию */
+    color: white; /* Цвет текста */
+    font-size: 24px; /* Размер шрифта иконок */
+    width: 50px; /* Ширина кнопки */
+    height: 50px; /* Высота кнопки */
+    border-radius: 50%; /* Кнопки круглой формы */
+    transition: background-color 0.3s; /* Плавный переход цвета */
+}
+/* Специальные цвета для каждой кнопки */
+.telegram {
+    background-color: #0088cc; /* Цвет кнопки Telegram */
+}
+
+.telegram:hover {
+    background-color: #0077aa; /* Цвет при наведении */
+}
+
+.viber {
+    background-color: #663399; /* Цвет кнопки Viber */
+}
+
+.viber:hover {
+    background-color: #582b8a; /* Цвет при наведении */
+}
+
+.whatsapp {
+    background-color: #25d366; /* Цвет кнопки WhatsApp */
+}
+
+.whatsapp:hover {
+    background-color: #20b358; /* Цвет при наведении */
+}
+/*кнопки ВАТСАТ ВАЙБ ТГ */
+
+
+
+
+/* Анимация "пульсации" */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px); /* Мигать вниз */
+    }
+}
+/* Кнопки на ГЛАВНЫХ СТРАНИЦАХ */
+
+    .button-container {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px auto;
+        max-width: 1200px; /* Ограничивает ширину контейнера */
+    }
+
+    .button-left, .button-right {
+        flex: 1;
+        margin: 10px;
+        text-align: center;
+        background-color: transparent; /* Прозрачный фон */
+        padding: 20px;
+        border-radius: 10px; /* Закругление углов */
+        transition: transform 0.3s;
+        color: inherit; /* Устанавливаем цвет текста у ссылок, чтобы он наследовался от родительского элемента */
+    }
+
+    .button-left:hover, .button-right:hover {
+        transform: scale(1.05); /* Увеличение размера при наведении */
+    }
+
+    .button-image {
+        width: 400px; /* Установите желаемую ширину */
+        height: 300px; /* Установите желаемую высоту */
+        object-fit: cover; /* Обеспечивает обрезку изображения по размеру */
+        border-radius: 30px;
+    }
+
+    h3 {
+        margin: 10px 0 5px; /* Отступы для заголовка */
+        color: #fff; /* Цвет текста под заголовком */
+
+    }
+
+    p {
+        font-size: 14px;
+        color: #fff; /* Цвет текста под заголовком */
+    }
+/* Кнопки на ГЛАВНЫХ СТРАНИЦАХ */
+
+
+
+/* Cтрелочка */
+.scroll-indicator {
+    display: flex;
+    justify-content: center; /* Центрирование стрелочки по горизонтали */
+    margin-top: 20px; /* Отступ сверху */
+}
+
+.arrow {
+    width: 100;
+    height: 100;
+    border-left: 30px solid transparent; /* Левый край стрелки */
+    border-right: 30px solid transparent; /* Правый край стрелки */
+    border-top: 15px solid #fff; /* Носик стрелки */
+    animation: bounce 1s infinite; /* Применяем анимацию */
+}
+
+@keyframes bounce {
+    50%, 50% {
+        transform: translateY(1100); /* Исходное положение */
+    }
+    10% {
+        transform: translateY(10px); /* Движение вниз */
+    }
+}
+/* Cтрелочка */
+
+
+
+/* СЛАЙД ФОТОГРАФИЙ */
+footer {
+    width: 100%; /* Полная ширина видовой области */
+    position: relative; /* Убедитесь, что футер не перекрывается позиционированием других элементов */
+    left: 50%; /* Сдвиг влево на 50% */
+    right: 50%; /* Сдвиг вправо на 50% */
+    margin-left: -50vw; /* Отмена сдвига для левой стороны */
+    margin-right: -50vw; /* Отмена сдвига для правой стороны */
+}
+body {
+    overflow-x: hidden; /* Отключение горизонтальной прокрутки */
+}
+#infinite-slider {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    height: 100px; /* Задайте нужную высоту */
+    background-color: transparent; /* Сделайте фон контейнера прозрачным, если нужно */
+}
+
+.slider1 {
+    display: flex; /* Используем flexbox для горизонтального расположения */
+    overflow: hidden; /* Скрывает излишки, если они выходят за пределы контейнера */
+    width: 240px; /* Ширина контейнера слайдов */
+}
+
+.slide1 {
+    min-width: 240px; /* Ширина каждого слайда */
+    height: 150px; /* Высота слайда */
+    background-color: transparent; /* Сделать фон слайда прозрачным */
+}
+
+.slide1 img {
+    width: 100%; /* Подгонка изображения под ширину слайда */
+    height: 100%; /* Подгонка изображения под высоту слайда */
+    object-fit: cover; /* Обеспечивает сохранение пропорций изображения */
+    display: block; /* Убирает пробелы под изображением */
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+
+
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Прокрутка на 50% ширины слайдов */
+}
+/* СЛАЙД ФОТОГРАФИЙ */
+
+
+
+
+
+
+/*СТИЛИ ДЛЯ КОНТАКТОВ*/
+.contact-column1 {
+    flex: 1; /* Занимает одну часть */
+    padding: 20px; /* Добавляем немного отступов */
+}
+
+.contact-info1 {
+    margin-top: 20px; /* Отступ сверху от заголовка */
+}
+
+.messenger-buttons {
+    display: flex;
+    gap: 15px; /* Отступ между кнопками */
+}
+
+.messenger-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 25px; /* Увеличиваем padding для большей кнопки */
+    font-size: 18px; /* Размер текста */
+    font-weight: bold; /* Сделаем текст жирным */
+    border-radius: 5px; /* Закругленные углы */
+    color: #fff; /* Цвет текста */
+    text-decoration: none; /* Убираем подчеркивание */
+    transition: background-color 0.3s; /* Плавный переход цвета */
+}
+
+.viber-button {
+    background-color: #6B6BA0; /* Цвет Viber */
+}
+
+.whatsapp-button {
+    background-color: #25D366; /* Цвет WhatsApp */
+}
+
+.telegram-button {
+    background-color: #0088CC; /* Цвет Telegram */
+}
+
+/* Эффект при наведении */
+.messenger-button:hover {
+    opacity: 0.8; /* Уменьшаем прозрачность при наведении */
+}
+.contact-info {
+    margin-top: 20px; /* Отступ сверху для группы контактной информации */
+}
+
+.contact-item {
+    display: flex; /* Используем flexbox для выравнивания кнопки и текста */
+    align-items: center; /* Центрируем элементы по вертикали */
+    margin-bottom: 15px; /* Отступ между контактными элементами */
+}
+
+.contact-label {
+    font-size: 20px; /* Размер шрифта для ярлыка */
+    margin-left: 10px; /* Отступ между кнопкой и текстом */
+}
+
+.contact-button {
+    display: flex; /* Для кнопок, чтобы иконки и текст были рядом */
+    align-items: center; /* Центрируем иконки */
+    justify-content: center;
+    width: 40px; /* Ширина кнопки */
+    height: 40px; /* Высота кнопки */
+    color: #fff; /* Цвет шрифта на кнопке */
+    background-color: #007BFF; /* Цвет кнопки (можно изменить) */
+    border-radius: 50%; /* Круглая кнопка */
+    text-decoration: none; /* Убираем подчеркивание */
+    transition: background-color 0.3s; /* Плавный переход цвета */
+}
+
+.contact-button:hover {
+    background-color: #0056b3; /* Цвет кнопки при наведении */
+}
+/* Уникальные стили для кнопок */
+.btn i {
+    margin-right: 5px; /* Отступ между иконкой и текстом */
+}
+
+/* Стили для модального окна */
+.modal-content {
+    background-color: #212529; /* Темный фон для модального окна */
+    color: white; /* Белый текст */
+}
+
+.modal-header {
+    border-bottom: 0; /* Убираем нижнюю границу */
+}
+
+.modal-footer {
+    border-top: 0; /* Убираем верхнюю границу */
+}
+/*СТИЛИ ДЛЯ КОНТАКТОВ*/
+
+
+
+
+
+
+
+
+/* РАСПОЛОЖЕНИЕ КНОПОК В ПОДВАЛЕ*/
+.footer-links {
+    height: 100%; /* Убедитесь, что высота блока соответствует родительскому */
+}
+
+.footer-links a {
+    margin-right: 15px; /* Отступ между ссылками */
+    color: white; /* Цвет ссылок */
+    text-decoration: none; /* Убираем подчеркивание */
+
+}
+
+.footer-icon {
+    color: #fff; /* Цвет иконок */
+    margin-right: 10px; /* Отступ между иконкой и текстом */
+}
+.footer-links a {
+    margin-right: 15px; /* Отступ между ссылками */
+    color: white; /* Цвет ссылок */
+    text-decoration: none; /* Убираем подчеркивание */
+    transition: font-size 0.3s ease; /* Плавный переход для изменения размера шрифта */
+}
+
+.footer-links a:hover {
+    font-size: 1.2em; /* Увеличиваем размер шрифта при наведении */
+}
+
+/* РАСПОЛОЖЕНИЕ КНОПОК В ПОДВАЛЕ*/
+
+
+
+
+/*ПОЛОСКА*/
+    .divider {
+        width: 100%; /* Полоска на всю ширину */
+        height: 2px; /* Высота полоски */
+        background-color: #ccc; /* Цвет полоски */
+        margin: 20px 0; /* Отступы сверху и снизу */
+    }
+/*ПОЛОСКА*/
+
+
+
+/* CЛАЙД НА ГЛАВНОЙ */
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+            height: 300px; /* Высота вашего слайдера */
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 100%;
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 100%;
+            position: relative; /* Позиционирование для слоя */
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slide-title {
+            font-size: 30px; /* Увеличьте размер шрифта по вашему желанию */
+            font-weight: bold; /* Сделаем текст жирным для лучшей читаемости */
+            color: #ffffff; /* Цвет текста (можно изменить по вашему желанию) */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Тень для улучшения читаемости */
+            margin: 0; /* Убираем отступы, если они есть */
+        }
+
+        .slide-text {
+            position: absolute; /* Положение текста относительно родителя */
+            bottom: 80px; /* Нижний отступ для текста */
+            left: 50%; /* Центр по горизонтали */
+            transform: translateX(-50%); /* Центрирование */
+            color: #fff; /* Белый цвет текста */
+            font-size: 20px; /* Размер шрифта текста */
+            z-index: 40; /* z-index для текста */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Тень для улучшения читаемости */
+        }
+
+        .slide-button {
+            background-color: transparent; /* Прозрачный фон для кнопки */
+            border: 2px solid rgba(255, 255, 255, 0.5); /* Полупрозрачная рамка */
+            color: #fff; /* Белый текст */
+            padding: 10px 15px; /* Отступы */
+            font-size: 16px; /* Размер шрифта */
+            cursor: pointer; /* Указатель при наведении */
+            margin-top: 10px; /* Отступ сверху */
+            transition: background-color 0.3s, color 0.3s; /* Плавный переход цвета */
+        }
+
+        .slide-button:hover {
+            background-color: rgba(255, 255, 255, 0.2); /* Легкая непрозрачность при наведении */
+            color: #ffffff; /* Темный текст при наведении */
+        }
+
+        .nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-10%);
+            background: rgba(0, 0, 0, 0.3); /* Полупрозрачный фон для кнопок навигации */
+            border: none;
+            padding: 15px; /* Увеличенные отступы для большей кнопки */
+            cursor: pointer;
+            border-radius: 30%; /* Круглая форма */
+            z-index: 20; /* z-index для кнопок навигации */
+            transition: background 0.3s, transform 0.3s; /* Плавный переход */
+            opacity: 0.7; /* Начальная прозрачность */
+        }
+
+        .nav-button:hover {
+            background: rgba(0, 0, 0, 0.5); /* Более темный фон при наведении */
+            transform: scale(1.1); /* Увеличение при наведении */
+            opacity: 1; /* Прозрачность при наведении */
+        }
+
+
+        .prev {
+            left: 10px; /* Отступ слева */
+        }
+
+        .next {
+            right: 10px; /* Отступ справа */
+        }
+        .slider {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out; /* Плавный переход */
+        }
+
+        .slide.active {
+            opacity: 1; /* Отображение активного слайда */
+        }
+
+
+
+

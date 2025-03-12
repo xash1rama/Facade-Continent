@@ -1,0 +1,52 @@
+{% extends "admin_base.html" %}
+
+{% block style %}
+<link rel="stylesheet" href="css/admin/style_admin_orders.css">
+{% endblock %}
+
+
+
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center text-white">Заявки на обратную связь</h1>
+
+    <h1></h1>
+    <table class="table table-bordered table-striped text-center" id="siteDataTable" style="color: white;">
+        <thead class="thead-dark">
+            <tr>
+                <th>Имя</th>
+                <th>Номер телефона</th>
+                <th>Вопрос</th>
+                <th>Комментарий</th>
+                <th>Дата</th>
+                <th>Действия</th> <!-- Добавлено для кнопки -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for info in informs %}
+            <tr id="row-{{ info.id }}">
+                <td>{{ info.name }}</td>
+                <td>{{ info.number_phone }}</td>
+                <td>{{ info.question }}</td>
+                <td>{{ info.comments }}</td>
+                <td>{{ info.date }}</td>
+                <td>
+                    <button class="btn btn-danger btn-sm" onclick="deleteItem({{ info.id }})">
+                        <i class="fas fa-trash"></i> Удалить
+                    </button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+
+
+
+
+
+{% block scripts %}
+    <script src="scripts/admin/script_admin_orders.js"></script>
+{% endblock %}

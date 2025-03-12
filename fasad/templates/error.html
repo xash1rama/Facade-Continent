@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+
+
+{% block title %}
+Facade Continent - 404!
+{% endblock %}
+
+
+
+{% block style %}
+    <link rel="stylesheet" href="css/styles_contacts.css"> <!-- Подключение CSS файла -->
+{% endblock %}
+
+
+
+{% block content %}
+    <div class="text-column2">
+        <div class="text-column2">
+            <a href="/" class="slide-button">Вернуться на главную страницу!</a>
+        </div>
+    </div>
+
+
+<section id="main" class="text-center d-flex justify-content-between align-items-center background-image">
+    <div class="text-column">
+    <h5 class="form-title">Оставьте свои контактные данные, менеджер свяжется с вами и ответит на все интересующие вопросы и даст экспертные рекомендации</h5>
+
+        <form id="contactForm" class="custom-contact-form">
+            <div class="custom-form-group">
+                <label for="name" class="custom-label">Имя:</label>
+                <input type="text" id="name" name="name" class="custom-input" required maxlength="30">
+            </div>
+            <div class="custom-form-group">
+                <label for="phone" class="custom-label">Номер телефона:</label>
+                <input type="tel" id="phone" name="phone" class="custom-input" required maxlength="20">
+            </div>
+            <div class="custom-form-group">
+                <label for="questions" class="custom-label">Выберите интересующий вопрос:</label>
+                <select id="questions" name="questions" class="custom-select22" required>
+                    <option value="Фасад">Фасад</option>
+                    <option value="Кровля">Кровля</option>
+                    <option value="Другие вопросы">Другие вопросы</option>
+                </select>
+            </div>
+            <div class="custom-form-group">
+                <label for="comments" class="custom-label">Комментарий:</label>
+                <textarea id="comments" name="comments" class="custom-textarea" placeholder="Комментарий" maxlength="200"></textarea>
+            </div>
+            <button type="submit" class="custom-submit-button">Отправить</button>
+        </form>
+    </div>
+    <div class="image-column">
+        <img src="image/error.png" alt="Описание изображения" class="main-image">
+    </div>
+</section>
+
+<div class="notification success" id="notification" style="display:none;">Данные успешно отправлены!</div>
+<div class="notification error" id="errorNotification" style="display:none;">Ваша заявка принята и уже обрабатывается!</div>
+<div class="notification countdown" id="countdown" style="display:none;"></div>
+
+
+{% endblock %}
+
+
+
+{% block scripts %}
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="scripts/script_contacts.js"></script>
+{% endblock %}
+

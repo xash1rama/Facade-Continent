@@ -1,0 +1,264 @@
+{% extends "admin_base.html" %}
+
+{% block style %}
+<link rel="stylesheet" href="css/admin/style_admin_price_facade.css">
+<link rel="stylesheet" href="css/styles_services.css">
+
+{% endblock %}
+
+
+
+{% block content %}
+<div class="table-container">
+<h1></h1>
+<h1 class="text-center text-white">Услуги начальных фасадных работ</h1>
+<table class="compact-table" id="startFacadeWorksTable">
+    <thead>
+        <tr>
+            <th>Вид работы</th>
+            <th>Ед</th>
+            <th>Стоимость</th>
+            <th>Действия</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for facade in facade_start %}
+        <tr>
+            <td>{{ facade.name }}</td>
+            <td>{{ facade.measure }}</td>
+            <td>от {{ facade.price }}р.</td>
+            <td>
+                <button class="btn btn-warning btn-sm" onclick="showStartForm('edit', {{ facade.id }}, '{{ facade.name }}', '{{ facade.measure }}', {{ facade.price }} )">
+                    <i class="fas fa-edit"></i> Изменить
+                </button>
+                <button class="btn btn-danger btn-sm" onclick="deleteStartItem({{ facade.id }})">
+                    <i class="fas fa-trash"></i> Удалить
+                </button>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<button class="btn btn-success btn-lg btn-block" onclick="showStartForm('add')">
+    <i class="fas fa-plus"></i> Добавить новое значение
+</button>
+
+<!-- Форма для добавления/изменения начальных фасадных работ -->
+<div id="startFacadeFormModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content bg-dark text-white rounded shadow-lg">
+            <div class="modal-header border-bottom-0">
+                <h5 class="modal-title" id="startModalTitle">Добавить новое значение</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="startFacadeForm">
+                    <input type="hidden" id="startFacadeId" name="startFacadeId">
+                    <div class="form-group mb-2">
+                        <label for="startFacadeName">Название</label>
+                        <input type="text" class="form-control bg-secondary text-white border-0" id="startFacadeName" name="startFacadeName" required>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label>Ед. измерения</label><br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="startMeasure" value="м²" id="startMeasureM2">
+                            <label class="form-check-label text-white" for="startMeasureM2">м²</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="startMeasure" value="м/п" id="startMeasureMP">
+                            <label class="form-check-label text-white" for="startMeasureMP">м/п</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="startMeasure" value="Общая" id="startMeasureCommon">
+                            <label class="form-check-label text-white" for="startMeasureCommon">Общая</label>
+                        </div>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="startFacadePrice">Стоимость</label>
+                        <input type="number" class="form-control bg-secondary text-white border-0" id="startFacadePrice" name="startFacadePrice" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer border-top-0">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                <button type="button" class="btn btn-success" id="submitStartFacadeBtn">Сохранить</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<h1></h1>
+<div class="table-container">
+<h1 class="text-center text-white">Базовые услуги фасадных работ</h1>
+<table class="compact-table" id="baseFacadeWorksTable">
+    <thead>
+        <tr>
+            <th>Вид работы</th>
+            <th>Ед.</th>
+            <th>Стоимость</th>
+            <th>Действия</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for facade in facade_base %}
+        <tr>
+            <td>{{ facade.name }}</td>
+            <td>{{ facade.measure }}</td>
+            <td>от {{ facade.price }}р.</td>
+
+            <td>
+                <button class="btn btn-warning btn-sm" onclick="showBaseForm('edit', {{ facade.id }}, '{{ facade.name }}', '{{ facade.measure }}', {{ facade.price }} )">
+                    <i class="fas fa-edit"></i> Изменить
+                </button>
+                <button class="btn btn-danger btn-sm" onclick="deleteBaseItem({{ facade.id }})">
+                    <i class="fas fa-trash"></i> Удалить
+                </button>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<button class="btn btn-success btn-lg btn-block" onclick="showBaseForm('add')">
+    <i class="fas fa-plus"></i> Добавить новое значение
+</button>
+
+<!-- Форма для добавления/изменения базовых фасадных работ -->
+<div id="baseFacadeFormModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content bg-dark text-white rounded shadow-lg">
+            <div class="modal-header border-bottom-0">
+                <h5 class="modal-title" id="baseModalTitle">Добавить новое значение</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="baseFacadeForm">
+                    <input type="hidden" id="baseFacadeId" name="baseFacadeId">
+                    <div class="form-group mb-2">
+                        <label for="baseFacadeName">Название</label>
+                        <input type="text" class="form-control bg-secondary text-white border-0" id="baseFacadeName" name="baseFacadeName" required>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label>Ед. измерения</label><br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="baseMeasure" value="м²" id="baseMeasureM2">
+                            <label class="form-check-label text-white" for="baseMeasureM2">м²</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="baseMeasure" value="м/п" id="baseMeasureMP">
+                            <label class="form-check-label text-white" for="baseMeasureMP">м/п</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="baseMeasure" value="Общая" id="baseMeasureCommon">
+                            <label class="form-check-label text-white" for="baseMeasureCommon">Общая</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-2">
+                        <label for="baseFacadePrice">Стоимость</label>
+                        <input type="number" class="form-control bg-secondary text-white border-0" id="baseFacadePrice" name="baseFacadePrice" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer border-top-0">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                <button type="button" class="btn btn-success" id="submitBaseFacadeBtn">Сохранить</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+<h1></h1>
+
+<div class="table-container">
+<h1 class="text-center text-white">Финишные услуги фасадных работ</h1>
+<table class="compact-table" id="finishFacadeWorksTable" >
+    <thead>
+        <tr>
+            <th>Вид работы</th>
+            <th>Ед.</th>
+            <th>Стоимость</th>
+            <th>Действия</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for facade in facade_finish %}
+        <tr>
+            <td>{{ facade.name }}</td>
+            <td>{{ facade.measure }}</td>
+            <td>от {{ facade.price }}р.</td>
+            <td>
+                <button class="btn btn-warning btn-sm" onclick="showFinishForm('edit', {{ facade.id }}, '{{ facade.name }}', '{{ facade.measure }}', {{ facade.price }})">
+                    <i class="fas fa-edit"></i> Изменить
+                </button>
+                <button class="btn btn-danger btn-sm" onclick="deleteFinishItem({{ facade.id }})">
+                    <i class="fas fa-trash"></i> Удалить
+                </button>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<button class="btn btn-success btn-lg btn-block" onclick="showFinishForm('add')">
+    <i class="fas fa-plus"></i> Добавить новое значение
+</button>
+
+<!-- Форма для добавления/изменения базовых фасадных работ -->
+<div id="finishFacadeFormModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content bg-dark text-white rounded shadow-lg">
+            <div class="modal-header border-bottom-0">
+                <h5 class="modal-title" id="finishModalTitle">Добавить новое значение</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="finishFacadeForm">
+                    <input type="hidden" id="finishFacadeId" name="finishFacadeId">
+                    <div class="form-group mb-2">
+                        <label for="finishFacadeName">Название</label>
+                        <input type="text" class="form-control bg-secondary text-white border-0" id="finishFacadeName" name="finishFacadeName" required>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label>Ед. измерения</label><br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="finishMeasure" value="м²" id="finishMeasureM2">
+                            <label class="form-check-label text-white" for="finishMeasureM2">м²</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="finishMeasure" value="м/п" id="finishMeasureMP">
+                            <label class="form-check-label text-white" for="finishMeasureMP">м/п</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="finishMeasure" value="Общая" id="finishMeasureCommon">
+                            <label class="form-check-label text-white" for="finishMeasureCommon">Общая</label>
+                        </div>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="finishFacadePrice">Стоимость</label>
+                        <input type="number" class="form-control bg-secondary text-white border-0" id="finishFacadePrice" name="finishFacadePrice" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer border-top-0">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                <button type="button" class="btn btn-success" id="submitFinishFacadeBtn">Сохранить</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+{% endblock %}
+
+
+
+{% block scripts %}
+    <script src="scripts/admin/script_admin_price_facade.js"></script>
+{% endblock %}

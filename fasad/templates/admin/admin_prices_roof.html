@@ -1,0 +1,264 @@
+{% extends "admin_base.html" %}
+
+{% block style %}
+<link rel="stylesheet" href="css/admin/style_admin_price_roof.css">
+<link rel="stylesheet" href="css/styles_services.css">
+{% endblock %}
+
+
+
+
+{% block content %}
+<div class="table-container">
+
+<h1 class="text-center text-white">Начальные услуги кровельных работ</h1>
+<table class="compact-table" id="startRoofWorksTable">
+    <thead>
+        <tr>
+            <th>Вид работы</th>
+            <th>Ед.</th>
+            <th>Стоимость</th>
+            <th>Действия</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for roof in roof_start %}
+        <tr>
+            <td>{{ roof.name }}</td>
+            <td>{{ roof.measure }}</td>
+            <td>от {{ roof.price }}р.</td>
+            <td>
+                <button class="btn btn-warning btn-sm" onclick="showStartRoofForm('edit', {{ roof.id }}, '{{ roof.name }}', '{{ roof.measure }}', {{ roof.price }})">
+                    <i class="fas fa-edit"></i> Изменить
+                </button>
+                <button class="btn btn-danger btn-sm" onclick="deleteStartRoofItem({{ roof.id }})">
+                    <i class="fas fa-trash"></i> Удалить
+                </button>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<button class="btn btn-success btn-lg btn-block" onclick="showStartRoofForm('add')">
+    <i class="fas fa-plus"></i> Добавить новое значение
+</button>
+
+<!-- Форма для добавления/изменения базовых фасадных работ -->
+<div id="startRoofFormModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content bg-dark text-white rounded shadow-lg">
+            <div class="modal-header border-bottom-0">
+                <h5 class="modal-title" id="startRoofModalTitle">Добавить новое значение</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="startRoofForm">
+                    <input type="hidden" id="startRoofId" name="startRoofId">
+                    <div class="form-group mb-2">
+                        <label for="startRoofName">Название</label>
+                        <input type="text" class="form-control bg-secondary text-white border-0" id="startRoofName" name="startRoofName" required>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label>Ед. измерения</label><br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="startRoofMeasure" value="м²" id="startRoofMeasureM2">
+                            <label class="form-check-label text-white" for="startRoofMeasureM2">м²</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="startRoofMeasure" value="м/п" id="startRoofMeasureMP">
+                            <label class="form-check-label text-white" for="startRoofMeasureMP">м/п</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="startRoofMeasure" value="Общая" id="startRoofMeasureCommon">
+                            <label class="form-check-label text-white" for="startRoofMeasureCommon">Общая</label>
+                        </div>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="startRoofPrice">Стоимость</label>
+                        <input type="number" class="form-control bg-secondary text-white border-0" id="startRoofPrice" name="startRoofPrice" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer border-top-0">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                <button type="button" class="btn btn-success" id="submitStartRoofBtn">Сохранить</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<h1></h1>
+<div class="table-container">
+<h1 class="text-center text-white">Базовые услуги кровельных работ</h1>
+<table class="compact-table" id="baseRoofWorksTable">
+    <thead>
+        <tr>
+            <th>Вид работы</th>
+            <th>Ед.</th>
+            <th>Стоимость</th>
+            <th>Действия</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for roof in roof_base %}
+        <tr>
+            <td>{{ roof.name }}</td>
+            <td>{{ roof.measure }}</td>
+            <td>от {{ roof.price }}р.</td>
+            <td>
+                <button class="btn btn-warning btn-sm" onclick="showBaseRoofForm('edit', {{ roof.id }}, '{{ roof.name }}', '{{ roof.measure }}', {{ roof.price }})">
+                    <i class="fas fa-edit"></i> Изменить
+                </button>
+                <button class="btn btn-danger btn-sm" onclick="deleteBaseRoofItem({{ roof.id }})">
+                    <i class="fas fa-trash"></i> Удалить
+                </button>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<button class="btn btn-success btn-lg btn-block" onclick="showBaseRoofForm('add')">
+    <i class="fas fa-plus"></i> Добавить новое значение
+</button>
+
+<!-- Форма для добавления/изменения базовых фасадных работ -->
+<div id="baseRoofFormModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content bg-dark text-white rounded shadow-lg">
+            <div class="modal-header border-bottom-0">
+                <h5 class="modal-title" id="baseRoofModalTitle">Добавить новое значение</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="baseRoofForm">
+                    <input type="hidden" id="baseRoofId" name="baseRoofId">
+                    <div class="form-group mb-2">
+                        <label for="finishRoofName">Название</label>
+                        <input type="text" class="form-control bg-secondary text-white border-0" id="baseRoofName" name="baseRoofName" required>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label>Ед. измерения</label><br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="baseRoofMeasure" value="м²" id="baseRoofMeasureM2">
+                            <label class="form-check-label text-white" for="baseRoofMeasureM2">м²</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="baseRoofMeasure" value="м/п" id="baseRoofMeasureMP">
+                            <label class="form-check-label text-white" for="baseRoofMeasureMP">м/п</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="baseRoofMeasure" value="Общая" id="baseRoofMeasureCommon">
+                            <label class="form-check-label text-white" for="baseRoofMeasureCommon">Общая</label>
+                        </div>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="baseRoofPrice">Стоимость</label>
+                        <input type="number" class="form-control bg-secondary text-white border-0" id="baseRoofPrice" name="baseRoofPrice" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer border-top-0">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                <button type="button" class="btn btn-success" id="submitBaseRoofBtn">Сохранить</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<h1></h1>
+<div class="table-container">
+<h1 class="text-center text-white">Финишные услуги кровельных работ</h1>
+<table class="compact-table" id="finishRoofWorksTable">
+    <thead>
+        <tr>
+            <th>Вид работы</th>
+            <th>Ед.</th>
+            <th>Стоимость</th>
+            <th>Действия</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for roof in roof_finish %}
+        <tr>
+            <td>{{ roof.name }}</td>
+            <td>{{ roof.measure }}</td>
+            <td>от {{ roof.price }}р.</td>
+            <td>
+                <button class="btn btn-warning btn-sm" onclick="showFinishRoofForm('edit', {{ roof.id }}, '{{ roof.name }}', '{{ roof.measure }}', {{ roof.price }})">
+                    <i class="fas fa-edit"></i> Изменить
+                </button>
+                <button class="btn btn-danger btn-sm" onclick="deleteFinishRoofItem({{ roof.id }})">
+                    <i class="fas fa-trash"></i> Удалить
+                </button>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<button class="btn btn-success btn-lg btn-block" onclick="showFinishRoofForm('add')">
+    <i class="fas fa-plus"></i> Добавить новое значение
+</button>
+
+<!-- Форма для добавления/изменения кровельных работ -->
+<div id="finishRoofFormModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content bg-dark text-white rounded shadow-lg">
+            <div class="modal-header border-bottom-0">
+                <h5 class="modal-title" id="finishRoofModalTitle">Добавить новое значение</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="finishRoofForm">
+                    <input type="hidden" id="finishRoofId" name="finishRoofId">
+                    <div class="form-group mb-2">
+                        <label for="finishRoofName">Название</label>
+                        <input type="text" class="form-control bg-secondary text-white border-0" id="finishRoofName" name="finishRoofName" required>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label>Ед. измерения</label><br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="finishRoofMeasure" value="м²" id="finishRoofMeasureM2">
+                            <label class="form-check-label text-white" for="finishRoofMeasureM2">м²</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="finishRoofMeasure" value="м/п" id="finishRoofMeasureMP">
+                            <label class="form-check-label text-white" for="finishRoofMeasureMP">м/п</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="finishRoofMeasure" value="Общая" id="finishRoofMeasureCommon">
+                            <label class="form-check-label text-white" for="finishRoofMeasureCommon">Общая</label>
+                        </div>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="finishRoofPrice">Стоимость</label>
+                        <input type="number" class="form-control bg-secondary text-white border-0" id="finishRoofPrice" name="finishRoofPrice" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer border-top-0">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                <button type="button" class="btn btn-success" id="submitFinishRoofBtn">Сохранить</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}
+
+
+
+{% block scripts %}
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="scripts/admin/script_admin_price_roof.js"></script>
+{% endblock %}

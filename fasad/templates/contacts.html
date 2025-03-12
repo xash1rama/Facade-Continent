@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+
+
+
+
+{% block title %}
+Facade Continent - Контакты
+{% endblock %}
+
+
+
+
+
+{% block style %}
+    <link rel="stylesheet" href="css/styles_contacts.css">
+    <link rel="stylesheet" href="css/styles_index.css">
+{% endblock %}
+
+
+
+
+
+{% block content %}
+ <h2>Свяжитесь с нами или оставьте свои контакты</h2>
+
+
+<section id="main" class="text-center d-flex justify-content-between align-items-center background-image">
+    <div class="contact-column">
+<div class="divider"></div> <!-- Полоска разделения -->
+        <h1 class="info-text large-text">Свяжитесь с нами!</h1>
+        <h6>Мы всегда готовы ответить на ваши вопросы и помочь вам с проектом.</h6>
+
+        <!-- Контактные данные -->
+        <div class="contact-info">
+            <div class="contact-item">
+                <a href="tel:+{{ phone_main }}" class="contact-button tel-button">
+                    <i class="fas fa-phone-alt"></i>
+                </a>
+                <p class="contact-label"><strong>Телефон:</strong> {{ phone.data }} </p>
+            </div>
+            <div class="contact-item">
+                <a href="mailto:{{ email.data }}" class="contact-button email-button">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <p class="contact-label"><strong>Email:</strong> {{ email.data }} </p>
+            </div>
+            <div class="contact-item">
+                <a href="https://www.google.com/maps?q=Красногорский р-н, Ильиноско-Усово, ул.Архангельская 6" class="contact-button address-button" target="_blank">
+                    <i class="fas fa-map-marker-alt"></i>
+                </a>
+                <p class="contact-label"><strong>Адрес:</strong> Красногорский р-н, Ильиноско-Усово, ул. Архангельская 6 </p>
+            </div>
+
+            <!-- Кнопки мессенджеров с иконками -->
+            <div class="messenger-buttons">
+                <a href="viber://add?number=+{{ phone_main }}" class="messenger-button viber-button">
+                    <i class="fab fa-viber"></i> Viber
+                </a>
+                <a href="https://wa.me/+{{ phone_main }}" class="messenger-button whatsapp-button">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="https://t.me/{{ telegram.data }}" class="messenger-button telegram-button">
+                    <i class="fab fa-telegram"></i> Telegram
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="image-column">
+        <img src="image/image_main/logo.png" alt="Описание изображения" class="main-image">
+    </div>
+</section>
+
+
+    <h2 class="form-title">ОСТАЛИСЬ ВОПРОСЫ?</h2>
+    <h4 class="form-title">Оставьте свои контактные данные, менеджер свяжется с вами и ответит на все интересующие вопросы и даст экспертные рекомендации</h4>
+<form id="contactForm" class="custom-contact-form">
+    <div class="custom-form-group">
+        <label for="name" class="custom-label">Имя:</label>
+        <input type="text" id="name" name="name" class="custom-input" required maxlength="30">
+    </div>
+    <div class="custom-form-group">
+        <label for="phone" class="custom-label">Номер телефона:</label>
+        <input type="tel" id="phone" name="phone" class="custom-input" required maxlength="20">
+    </div>
+    <div class="custom-form-group">
+        <label for="questions" class="custom-label">Выберите интересующий вопрос:</label>
+        <select id="questions" name="questions" class="custom-select22" required>
+            <option value="Фасад">Фасад</option>
+            <option value="Кровля">Кровля</option>
+            <option value="Другие вопросы">Другие вопросы</option>
+        </select>
+    </div>
+    <div class="custom-form-group">
+        <label for="comments" class="custom-label">Комментарий:</label>
+        <textarea id="comments" name="comments" class="custom-textarea" placeholder="Комментарий" maxlength="200"></textarea>
+    </div>
+    <button type="submit" class="custom-submit-button">Отправить</button>
+</form>
+
+<div class="notification success" id="notification" style="display:none;">Данные успешно отправлены!</div>
+<div class="notification error" id="errorNotification" style="display:none;">Ваша заявка принята и уже обрабатывается!</div>
+<div class="notification countdown" id="countdown" style="display:none;"></div>
+
+
+{% endblock %}
+
+
+
+
+
+{% block scripts %}
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="scripts/script_contacts.js"></script>
+{% endblock %}

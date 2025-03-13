@@ -73,7 +73,6 @@
         <div class="slide active">
             <img src="image/slide_head/slide-1.jpg" alt="Изображение 1">
             <div class="slide-text">
-                <h1>Кейсы наших работ с фасадом</h1>
                 <h2>Найдите идеальное решение для вас!</h2>
                 <a href="/portfolio_facade" class="slide-button">Портфолио</a>
             </div>
@@ -81,7 +80,6 @@
         <div class="slide">
             <img src="image/slide_head/slide-2.jpg" alt="Изображение 2">
             <div class="slide-text">
-                <h1>Портфолио кровельных работ</h1>
                 <h2>Узнайте, что мы можем сделать для вас и вашей кровли!</h2>
                 <a href="/portfolio_roof" class="slide-button">Портфолио</a>
             </div>
@@ -89,15 +87,13 @@
         <div class="slide">
             <img src="image/slide_head/slide-3.jpg" alt="Изображение 3">
             <div class="slide-text">
-                <h1>Узнайте стоимость вашей кровли</h1>
-                <h2>Посмотрите стоимость услуг и посчитайте стоимость вашей кровли в одном месте!</h2>
+                <h2>Посчитайте стоимость вашей кровли в одном месте!</h2>
                 <a href="service_roof" class="slide-button">Услуги кровли</a>
             </div>
         </div>
         <div class="slide">
             <img src="image/slide_head/slide-4.jpg" alt="Изображение 4">
             <div class="slide-text">
-                <h1>Посмотрите сколько стоит ваш фасад</h1>
                 <h2>В одном месте вы узнаете цены и посчитаете расходы на свой проект!</h2>
                 <a href="/service_facade" class="slide-button">Услуги фасада</a>
             </div>
@@ -158,59 +154,51 @@
 
 
 
-<footer class="text-white" style="background-color: #000; padding: 20px 0;">
-    <div class="container" style="max-width: 1140px; margin: 0 auto;">
-        <div class="d-flex justify-content-between align-items-center" style="height: 100%;">
-            <div class="logo">
-                <a href="/">
-                    <img src="image/image_main/logo.png" alt="Логотип" style="height: 80px;">
+<footer class="footer">
+    <div class="footer-container">
+        <div class="logo">
+            <a href="/">
+                <img src="image/image_main/logo.png" alt="Логотип" style="height: 80px;">
+            </a>
+        </div>
+        <div class="footer-links">
+            <a href="/about" class="footer-link">О нас</a>
+            <a href="/service_facade" class="footer-link">Услуги фасада</a>
+            <a href="/service_roof" class="footer-link">Услуги кровли</a>
+            <a href="/portfolio_facade" class="footer-link">Портфолио фасада</a>
+            <a href="/portfolio_roof" class="footer-link">Портфолио кровли</a>
+        </div>
+        <div class="contact-info">
+            <div>
+                <a href="tel:+{{ phone_main }}" class="footer-icon" title="Телефон">
+                    <i class="fas fa-phone"></i>
                 </a>
+                <span>{{ phone.data }}</span>
             </div>
-            <div class="footer-links d-flex justify-content-center align-items-center">
-                <a href="/about" class="footer-link">О нас</a>
-                <a href="/service_facade" class="footer-link">Услуги фасада</a>
-                <a href="/service_roof" class="footer-link">Услуги кровли</a>
-                <a href="/portfolio_facade" class="footer-link">Портфолио фасада</a>
-                <a href="/portfolio_roof" class="footer-link">Портфолио кровли</a>
+            <div>
+                <a href="mailto:{{ email.data }}" class="footer-icon" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <span>{{ email.data }}</span>
             </div>
-            <div class="contact-info d-flex flex-column align-items-end">
-                <div>
-                    <a href="tel:+{{ phone_main }}" class="footer-icon" title="Телефон">
-                        <i class="fas fa-phone"></i>
-                    </a>
-                    <span> {{ phone.data }} </span>
-                </div>
-                <div>
-                    <a href="mailto:{{ email.data }}" class="footer-icon" title="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                    <span> {{ email.data }} </span>
-                </div>
-                <div>
-                    <a href="{{ telegram.data }}" class="telegram-icon" target="_blank" title="Telegram">
-                        <i class="fab fa-telegram-plane"></i>
-                    </a>
-                    <span>Наши новости!</span>
-                </div>
-                <div>
-                    <span>Адрес:</span>
-                </div>
-                <div>
-                    <span>Красногорский р-н</span>
-                </div>
-                <div>
-                    <span>Ильинско-Усово</span>
-                </div>
-                <div>
-                    <span>ул.Архангельская 6</span>
-                </div>
-
+            <div>
+                <a href="{{ telegram.data }}" class="telegram-icon" target="_blank" title="Telegram">
+                                <i class="fab fa-telegram-plane"></i>
+                </a>
+                <span>Наши новости!</span>
+            </div>
+            <div>
+                <span>Адрес:</span>
+                <span>Красногорский р-н</span>
+                <span>Ильинско-Усово</span>
+                <span>ул. Архангельская 6</span>
             </div>
         </div>
-        <h6>&copy; 2025 Facade Continent. Все права защищены.</h6>
-        <h6>Разработано <a href="https://t.me/xash1rama" target="_blank">xash1rama</a></h6>
     </div>
+    <h6 style="text-align: center; margin-top: 20px;">&copy; 2025 Facade Continent. Все права защищены.</h6>
+    <!-- <h6 style="text-align: center;">Разработано <a href="https://t.me/xash1rama" target="_blank">xash1rama</a></h6> -->
 </footer>
+
     {% block scripts %}
 
     {% endblock %}

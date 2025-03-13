@@ -12,35 +12,36 @@
 
 </head>
 <body>
-    <header class="text-white">
-        <div class="container d-flex justify-content-between align-items-center mt-5">
-            <div class="logo">
-                <a href="/">
-                    <img src="image/image_main/logo.png" alt="Логотип" style="height: 120px;">
+    <header class="header text-white">
+    <div class="container d-flex justify-content-between align-items-center mt-5">
+        <div class="logo">
+            <a href="/">
+                <img src="image/image_main/logo.png" alt="Логотип">
+            </a>
+        </div>
+        <div class="contact-info">
+            <div>
+                <a href="tel:+{{ phone_main }}" class="telegram-icon" title="Телефон">
+                    <i class="fas fa-phone"></i>
                 </a>
+                <span>{{ phone.data }}</span>
             </div>
-            <div class="contact-info">
-                <div>
-                    <a href="tel:+{{ phone_main }}" class="telegram-icon" title="Телефон">
-                        <i class="fas fa-phone"></i>
-                    </a>
-                    <span> {{ phone.data }} </span>
-                </div>
-                <div>
-                    <a href="mailto:{{ email.data }}" class="telegram-icon" title="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                    <span> {{ email.data }} </span>
-                </div>
-                <div>
-                    <a href="{{ telegram.data }}" class="telegram-icon" target="_blank" title="Telegram">
-                        <i class="fab fa-telegram-plane"></i>
-                    </a>
-                    <span>Наши новости!</span>
-                </div>
+            <div>
+                <a href="mailto:{{ email.data }}" class="telegram-icon" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <span>{{ email.data }}</span>
+            </div>
+            <div>
+                <a href="{{ telegram.data }}" class="telegram-icon" target="_blank" title="Telegram">
+                    <i class="fab fa-telegram-plane"></i>
+                </a>
+                <span>Наши новости!</span>
             </div>
         </div>
-    </header>
+    </div>
+</header>
+
 
 
 <nav class="navbar navbar-expand-lg navbar-dark">

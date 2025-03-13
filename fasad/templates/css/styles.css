@@ -622,11 +622,21 @@ body {
 
 /* РАСПОЛОЖЕНИЕ КНОПОК В ПОДВАЛЕ*/
 .footer {
-    background-color: #333; /* Цвет фона подвала */
-    padding: 10px 20px; /* Отступы для футера */
+    background-color: #000; /* Цвет фона подвала */
+    padding: 20px 0; /* Отступы для футера */
     display: flex; /* Используем флекс для разметки */
     flex-direction: column; /* Устанавливаем вертикальное направление */
     align-items: center; /* Центрируем элементы по горизонтали */
+}
+
+.footer-container {
+    max-width: 1140px; /* Максимальная ширина контейнера */
+    width: 100%; /* Занимает всю ширину */
+    padding: 0 20px; /* Отступы по бокам */
+    display: flex; /* Используем флекс для размещения элементов */
+    justify-content: space-between; /* Распределяем элементы по ширине */
+    align-items: center; /* Центрируем элементы по вертикали */
+    flex-wrap: wrap; /* Позволяем элементам переноситься на новую строку */
 }
 
 .footer-links {
@@ -637,7 +647,7 @@ body {
 }
 
 .footer-links a {
-    margin: 10px; /* Отступ между ссылками уменьшен для мобильных */
+    margin: 10px; /* Отступ между ссылками */
     color: white; /* Цвет ссылок */
     text-decoration: none; /* Убираем подчеркивание */
     transition: font-size 0.3s ease; /* Плавный переход для изменения размера шрифта */
@@ -655,6 +665,10 @@ body {
 /* Медиа-запрос для мобильных устройств */
 @media (max-width: 768px) {
     .footer {
+        padding: 15px 0; /* Уменьшаем отступы для мобильных */
+    }
+
+    .footer-container {
         flex-direction: column; /* Устанавливаем вертикальное направление для мобильных */
         align-items: center; /* Центрируем элементы по горизонтали */
     }
@@ -666,6 +680,11 @@ body {
 
     .footer-links a {
         margin: 5px; /* Уменьшаем отступы между ссылками на мобильных */
+    }
+
+    .contact-info {
+        align-items: center; /* Центрируем контактную информацию */
+        text-align: center; /* Центрируем текст */
     }
 }
 
@@ -690,7 +709,7 @@ body {
         .slider-container {
             position: relative;
             overflow: hidden;
-            height: 300px; /* Высота вашего слайдера */
+            height: 200px; /* Высота вашего слайдера */
         }
 
         .slider {
@@ -790,6 +809,72 @@ body {
         .slide.active {
             opacity: 1; /* Отображение активного слайда */
         }
+
+
+
+
+.header {
+    background-color: #444; /* Цвет фона хедера */
+    padding: 20px 0; /* Отступы для хедера */
+}
+
+.header .container {
+    max-width: 1140px; /* Максимальная ширина контейнера */
+    width: 100%; /* Занимает всю ширину */
+    padding: 0 20px; /* Отступы по бокам */
+    display: flex; /* Используем флекс для размещения элементов */
+    justify-content: space-between; /* Распределяем элементы по ширине */
+    align-items: center; /* Центрируем элементы по вертикали */
+    flex-wrap: wrap; /* Позволяем элементам переноситься на новую строку */
+}
+
+.logo img {
+    height: 120px; /* Высота логотипа */
+}
+
+.contact-info {
+    display: flex; /* Используем флекс для размещения контактной информации */
+    justify-content: center; /* Центрируем элементы по горизонтали */
+    flex-wrap: wrap; /* Позволяем контактам переноситься на новую строку */
+}
+
+.contact-info div {
+    margin: 0 15px; /* Отступы между контактами */
+    display: flex; /* Используем флекс для размещения иконки и текста */
+    align-items: center; /* Центрируем элементы по вертикали */
+}
+
+.contact-info a {
+    color: white; /* Цвет иконок */
+    margin-right: 5px; /* Отступ между иконкой и текстом */
+    transition: color 0.3s ease; /* Плавный переход для изменения цвета */
+}
+
+.contact-info a:hover {
+    color: #ffcc00; /* Изменение цвета при наведении */
+}
+
+/* Медиа-запрос для мобильных устройств */
+@media (max-width: 768px) {
+    .header {
+        padding: 15px 0; /* Уменьшаем отступы для мобильных */
+    }
+
+    .header .container {
+        flex-direction: column; /* Устанавливаем вертикальное направление для мобильных */
+        align-items: center; /* Центрируем элементы по горизонтали */
+    }
+
+    .contact-info {
+        justify-content: center; /* Центруем контактную информацию по горизонтали */
+        padding: 10px; /* Добавляем отступы для удобства */
+    }
+
+    .contact-info div {
+        margin: 5px 10px; /* Уменьшаем отступы между контактами на мобильных */
+    }
+}
+
 
 
 

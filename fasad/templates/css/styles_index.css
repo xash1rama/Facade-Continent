@@ -1,21 +1,30 @@
 
-
-
 /* ЭТАПЫ РАБОТ И ТД И ТП */
 .slide-button12 {
-            background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный черный фон для кнопки */
-            border: 2px solid rgba(255, 255, 255, 0.5); /* Полупрозрачная рамка */
-            color: #fff; /* Белый текст */
-            padding: 10px 15px; /* Отступы */
-            font-size: 16px; /* Размер шрифта */
-            cursor: pointer; /* Указатель при наведении */
-            margin-top: 2px; /* Отступ сверху */
-            transition: background-color 0.3s, color 0.3s; /* Плавный переход цвета */
-        }
-    .slide-button12:hover {
-            background-color: rgba(255, 255, 255, 0.2); /* Легкая непрозрачность при наведении */
-            color: black; /* Темный текст при наведении */
-        }
+    background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный черный фон для кнопки */
+    border: 2px solid rgba(255, 255, 255, 0.5); /* Полупрозрачная рамка */
+    color: #fff; /* Белый текст */
+    padding: 10px 15px; /* Отступы */
+    font-size: 16px; /* Размер шрифта */
+    cursor: pointer; /* Указатель при наведении */
+    margin-top: 2px; /* Отступ сверху */
+    transition: background-color 0.3s, color 0.3s; /* Плавный переход цвета */
+}
+
+.slide-button12:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Легкая непрозрачность при наведении */
+    color: black; /* Темный текст при наведении */
+}
+
+/* Медиа-запрос для мобильных устройств */
+@media (max-width: 768px) {
+    .slide-button12 {
+        padding: 12px 20px; /* Увеличиваем отступы для мобильных */
+        font-size: 18px; /* Увеличиваем размер шрифта для лучшей читаемости */
+        margin-top: 5px; /* Увеличиваем отступ сверху для лучшего внешнего вида */
+    }
+}
+
 
 
 
@@ -145,6 +154,35 @@
     overflow-wrap: break-word; /* Обеспечивает перенос слов */
     max-width: 100%; /* Устанавливаем максимальную ширину для текста */
 
+
+
+/* Адаптивный дизайн для мобильных устройств */
+@media (max-width: 768px) {
+    .steps-list2 {
+        flex-direction: row; /* Оставляем горизонтальное расположение для мобильных */
+        justify-content: space-around; /* Распределение шагов */
+    }
+
+    .step2 {
+        width: 150px; /* Уменьшаем ширину шагов для мобильных */
+        min-height: 150px; /* Минимальная высота блока */
+        padding: 40px 10px; /* Уменьшаем отступы */
+    }
+
+    .step-number2 {
+        width: 30px; /* Уменьшаем размер кружка */
+        height: 30px; /* Уменьшаем размер кружка */
+        font-size: 14px; /* Уменьшаем размер шрифта в кружке */
+    }
+
+    .step-description2 h3 {
+        font-size: 1.5rem; /* Уменьшаем размер заголовка */
+    }
+
+    .step-description2 p {
+        font-size: 0.9rem; /* Уменьшаем размер текста описания */
+    }
+}
     /* ЭТАПЫ РАБОТ И ТД И ТП */
 
 
@@ -208,8 +246,7 @@ max-height: 200px; /* Устанавливаем максимальную выс
 
 
 
-/* СЛАЙДЕР ПО 3 ФОТО*/
-body {
+/* СЛАЙДЕР ПО 3 ФОТО*/body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -218,7 +255,7 @@ body {
 
 .custom-slider-container {
     padding: 40px 0; /* Добавляем отступы сверху и снизу */
-    overflow: hidden;     width: 100%;
+    width: 100%;
     position: relative;
     overflow: hidden;
     background-color: transparent; /* Убираем фон контейнера слайдера */
@@ -238,7 +275,7 @@ body {
 
 .custom-image {
     height: 150px; /* Высота изображения */
-    width: 32%; /* Ширина каждого изображения - 1/3 от слайда, с учетом расстояния */
+    width: 32%; /* Ширина каждого изображения - 1/3 от слайда */
     background-size: cover;
     background-position: center;
     position: relative;
@@ -261,16 +298,10 @@ body {
     border-radius: 15px;
 }
 
-.custom-slider-container {
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-    background-color: transparent; /* Убираем фон контейнера слайдера */
-}
 .custom-arrow {
     position: absolute;
     top: 50%;
-    transform: translateY(-10%);
+    transform: translateY(-50%);
     background: rgba(255, 255, 255, 0.3);
     border: none;
     padding: 15px;
@@ -292,33 +323,6 @@ body {
     background: rgba(255, 255, 255, 0.6); /* Более светлый фон при наведении */
     transform: scale(1.3); /* Увеличение при наведении */
 }
-
-.custom-arrow-2 {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-10%);
-    background: rgba(255, 255, 255, 0.3); /* Полупрозрачный фон */
-    border: none;
-    padding: 15px; /* Увеличенные отступы для большей кнопки */
-    cursor: pointer;
-    border-radius: 10%; /* Круглая форма */
-    z-index: 10; /* Убедитесь, что стрелки находятся выше других элементов */
-    transition: background 0.3s, transform 0.3s; /* Плавный переход */
-}
-
-.left-custom-arrow-2 {
-    left: 20px; /* Устанавливаем отступ слева от центра */
-}
-
-.right-custom-arrow-2 {
-    right: 20px; /* Устанавливаем отступ справа от центра */
-}
-
-.custom-arrow:hover {
-    background: rgba(255, 255, 255, 0.6); /* Более светлый фон при наведении */
-    transform: scale(1.1); /* Увеличение при наведении */
-}
-
 
 .custom-button {
     background-color: transparent; /* Прозрачный фон для кнопки */
@@ -355,14 +359,41 @@ body {
     background-color: white; /* Цвет активной точки */
 }
 
+/* Адаптивный дизайн для мобильных устройств */
+@media (max-width: 768px) {
+    .custom-image {
+        width: 100%; /* Устанавливаем ширину изображения на 100% для мобильных устройств */
+        margin: 0; /* Убираем отступы между изображениями */
+    }
+
+    .custom-slider {
+        flex-direction: column; /* Меняем направление слайдера на столбик для мобильных */
+        align-items: center; /* Центрируем элементы */
+    }
+
+    .custom-arrow {
+        padding: 10px; /* Уменьшаем отступы для стрелок на мобильных */
+        font-size: 18px; /* Увеличиваем размер шрифта для стрелок */
+    }
+
+    .custom-button {
+        font-size: 14px; /* Уменьшаем размер шрифта для кнопки на мобильных */
+        padding: 8px 10px; /* Уменьшаем отступы для кнопки */
+    }
+
+    .custom-slider-container {
+        padding: 20px 0; /* Уменьшаем отступы контейнера для мобильных */
+    }
+}
+
+
 /* СЛАЙДЕР ПО 3 ФОТО*/
 
 
 
 
 
-/* СЛАЙДЕР ПО 3 ФОТО №2*/
-body {
+/* СЛАЙДЕР ПО 3 ФОТО №2*/body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -371,9 +402,9 @@ body {
 
 .custom-slider-container2 {
     padding: 40px 0; /* Добавляем отступы сверху и снизу */
-    overflow: hidden;     width: 100%;
-    position: relative;
     overflow: hidden;
+    width: 100%;
+    position: relative;
     background-color: transparent; /* Убираем фон контейнера слайдера */
 }
 
@@ -414,12 +445,6 @@ body {
     border-radius: 15px;
 }
 
-.custom-slider-container2 {
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-    background-color: transparent; /* Убираем фон контейнера слайдера */
-}
 .custom-arrow2 {
     position: absolute;
     top: 50%;
@@ -434,32 +459,6 @@ body {
 }
 
 .left-custom-arrow2 {
-    left: 20px;
-}
-
-.right-custom-arrow2 {
-    right: 20px;
-}
-
-.custom-arrow2:hover {
-    background: rgba(255, 255, 255, 0.6); /* Более светлый фон при наведении */
-    transform: scale(1.1); /* Увеличение при наведении */
-}
-
-.custom-arrow2 {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-10%);
-    background: rgba(255, 255, 255, 0.3); /* Полупрозрачный фон */
-    border: none;
-    padding: 15px; /* Увеличенные отступы для большей кнопки */
-    cursor: pointer;
-    border-radius: 50%; /* Круглая форма */
-    z-index: 10; /* Убедитесь, что стрелки находятся выше других элементов */
-    transition: background 0.3s, transform 0.3s; /* Плавный переход */
-}
-
-.left-custom-arrow2 {
     left: 20px; /* Устанавливаем отступ слева от центра */
 }
 
@@ -467,11 +466,10 @@ body {
     right: 20px; /* Устанавливаем отступ справа от центра */
 }
 
-.custom-arrow:hover {
+.custom-arrow2:hover {
     background: rgba(255, 255, 255, 0.6); /* Более светлый фон при наведении */
     transform: scale(1.1); /* Увеличение при наведении */
 }
-
 
 .custom-button2 {
     background-color: transparent; /* Прозрачный фон для кнопки */
@@ -484,7 +482,7 @@ body {
     transition: background-color 0.3s, color 0.3s; /* Плавный переход цвета */
 }
 
-.custom-button:hover {
+.custom-button2:hover {
     background-color: rgba(255, 255, 255, 0.2); /* Легкая непрозрачность при наведении */
     color: #ffffff; /* Темный текст при наведении */
 }
@@ -507,8 +505,43 @@ body {
 .custom-dot2.active2 {
     background-color: white; /* Цвет активной точки */
 }
-/* СЛАЙДЕР ПО 3 ФОТО №2*/
 
+/* Адаптивный дизайн для мобильных устройств */
+@media (max-width: 768px) {
+    .custom-image2 {
+        width: 100%; /* Устанавливаем ширину изображения на 100% для мобильных устройств */
+        margin: 0; /* Убираем отступы между изображениями */
+    }
+
+    .custom-slider2 {
+            flex-direction: column; /* Выстраиваем слайды в колонку */
+    }
+
+    .custom-slider-container2 {
+        padding: 20px 0; /* Уменьшаем отступы для мобильных устройств */
+    }
+
+    .custom-arrow2 {
+        padding: 10px; /* Уменьшаем размер стрелок */
+    }
+
+    .custom-button2 {
+        font-size: 14px; /* Уменьшаем размер шрифта для кнопки на мобильных устройствах */
+        padding: 8px 12px; /* Уменьшаем отступы на кнопке */
+    }
+
+    .custom-dots-container2 {
+        margin-top: 5px; /* Уменьшаем отступы вокруг точек */
+    }
+
+    .custom-dot2 {
+        width: 8px; /* Уменьшаем размер точек */
+        height: 8px; /* Уменьшаем размер точек */
+    }
+}
+
+
+/* СЛАЙДЕР ПО 3 ФОТО №2*/
 
 .welcome-container {
     display: flex; /* Используем флекс для выравнивания элементов */
@@ -519,30 +552,35 @@ body {
     border-radius: 10px; /* Скругленные углы */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Легкая тень */
     overflow: hidden; /* Скрываем переполнение */
+    flex-direction: column; /* Вертикальная компоновка для мобильных устройств */
 }
 
 .welcome-image {
-    width: 400px; /* Ширина изображения */
+    width: 100%; /* Ширина изображения на 100% для мобильных устройств */
+    max-width: 400px; /* Максимальная ширина для больших экранов */
     height: auto; /* Автоматическая высота */
     animation: slideIn 2s forwards; /* Анимация для изображения */
 }
 
 .welcome-text {
-    margin-left: 20px; /* Отступ слева для текста */
+    margin-left: 0; /* Убираем отступ слева для текста на мобильных */
+    margin-top: 20px; /* Добавляем отступ сверху для мобильных */
     opacity: 0; /* Начальная прозрачность текста */
     animation: fadeIn 1s forwards 2s; /* Анимация появления текста с задержкой */
     font-family: 'Roboto', sans-serif; /* Применяем шрифт Roboto */
+    text-align: center; /* Центрируем текст */
 }
 
 h2 {
     font-weight: 700; /* Жирный шрифт для заголовка */
     margin: 0; /* Убираем отступы */
+    font-size: 1.5rem; /* Размер шрифта заголовка */
 }
 
 p {
     font-weight: 400; /* Обычный шрифт для параграфа */
     margin: 0; /* Убираем отступы */
-    font-size: 1.2rem; /* Размер шрифта для текста */
+    font-size: 1rem; /* Размер шрифта для текста */
 }
 
 @keyframes slideIn {
@@ -559,6 +597,21 @@ p {
 @keyframes fadeIn {
     to {
         opacity: 1; /* Полная видимость текста */
+    }
+}
+
+/* Адаптивный дизайн для мобильных устройств */
+@media (max-width: 768px) {
+    .welcome-container {
+        padding: 10px; /* Уменьшаем отступы для мобильных устройств */
+    }
+
+    h2 {
+        font-size: 1.4rem; /* Уменьшаем размер шрифта заголовка */
+    }
+
+    p {
+        font-size: 0.9rem; /* Уменьшаем размер шрифта для текста */
     }
 }
 

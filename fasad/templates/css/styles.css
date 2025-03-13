@@ -27,23 +27,146 @@ body {
     }
 }
 
+.header, .footer {
+    padding: 15px;
+}
 
+.logo img {
+    max-width: 100%;
+    height: auto;
+}
 
-/* ФОРМА ПРИ ОБНОВЛЕНИИ или СОЗДАНИИ ДАННЫХ */
+.slider img {
+    width: 100%;
+    height: auto;
+}
+
+/* Адаптация навигационной панели */
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Центрирование навигации */
+}
+
+.nav-item {
+    flex: 1 1 100px; /* Минимальная ширина для элементов навигации */
+    text-align: center; /* Центрирование текста в навигации */
+}
+
+.brand-logos .logo-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Центрирование логотипов брендов */
+}
+
+.brand-logos .brand-logo {
+    max-width: 100px; /* Ограничение размера логотипов */
+    margin: 10px; /* Отступы между логотипами */
+}
+
+/* Установка отступов и размера текста для мобильных устройств */
+@media (max-width: 600px) {
+    body {
+        padding: 20px; /* Меньшие отступы на мобильных */
+    }
+
+    .contact-info {
+        flex-direction: column; /* Вертикальное расположение контактной информации */
+        align-items: flex-start;
+    }
+
+    .social-buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: center; /* Центрирование социальных кнопок */
+        margin: 10px 0; /* Отступ от основного текста */
+    }
+
+    .social-button {
+        margin-right: 10px; /* Отступ между кнопками */
+    }
+
+    h1, h2 {
+        font-size: 1.5em; /* Уменьшение размера заголовков */
+    }
+
+    .form-control {
+        width: 100%; /* Поля ввода на полную ширину */
+        margin: 10px 0; /* Отступ между полями ввода */
+    }
+}
+
+/* Форма при обновлении или создании данных */
 .form-control {
-    width: 90px; /* Ограничиваем ширину поля ввода */
+    width: 90%; /* Ограничиваем ширину поля ввода */
     color: white; /* Цвет текста белый */
     background-color: rgba(255, 255, 255, 0.1); /* Полупрозрачный фон для лучшего контраста */
     border: 1px solid #444; /* Темная граница для поля ввода */
     border-radius: 5px; /* Закругленные углы */
-    padding: 5px; /* Отступ внутри поля ввода */
+    padding: 10px; /* Увеличенный отступ внутри поля ввода */
 }
 
 .form-control::placeholder {
     color: white; /* Цвет текста плейсхолдера белый */
     opacity: 0.7; /* Полупрозрачность плейсхолдера */
 }
-/* ФОРМА ПРИ ОБНОВЛЕНИИ или СОЗДАНИИ ДАННЫХ */
+
+/* Объединение для других элементов формы */
+button {
+    padding: 10px 20px; /* Увеличение области нажатия */
+    border: none; /* Убираем стандартную рамку */
+    background-color: #005580; /* Цвет кнопки */
+    color: #fff; /* Цвет текста кнопки */
+    border-radius: 5px; /* Закругленные углы */
+    cursor: pointer; /* Курсор на кнопку */
+    transition: all 0    .2s; /* Плавный переход для эффектов */
+}
+
+button:hover {
+    background-color: #006699; /* Светлее при наведении */
+    transform: scale(1.05); /* Увеличение при наведении для эффекта нажатия */
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.8); /* Полупрозрачный черный фон для футера */
+    color: white; /* Цвет текста в футере */
+    padding: 15px; /* Отступы внутри футера */
+    text-align: center; /* Центрирование текста футера */
+}
+
+/* Добавление анимации для навигационных элементов */
+.nav-item {
+    transition: transform 0.2s;
+}
+
+.nav-item:hover {
+    transform: scale(1.1); /* Увеличение элемента навигации при наведении */
+}
+
+/* Картинки внутри контейнеров */
+.brand-logo img {
+    transition: transform 0.3s;
+}
+
+.brand-logo img:hover {
+    transform: scale(1.1); /* Увеличение изображений при наведении */
+}
+
+/* Для других медиа-запросов и адаптивности */
+@media (max-width: 400px) {
+    h1 {
+        font-size: 1.2em; /* Дополнительное уменьшение размера заголовка для очень маленьких экранов */
+    }
+
+    .social-button {
+        margin-right: 5px; /* Уменьшаем отступ между кнопками для мобильных */
+    }
+
+    button {
+        padding: 8px 15px; /* Уменьшение размера кнопок на маленьких экранах */
+        font-size: 14px; /* Размер текста кнопок для небольших экранов */
+    }
+}
 
 
 
@@ -58,6 +181,8 @@ body {
         .logo img {
             height: 280px; /* Увеличьте высоту логотипа */
             width: auto; /* Автоматическая ширина для сохранения пропорций */
+                margin-top: 20px; /* Дополнительный отступ для логотипа */
+
         }
 
 
@@ -107,53 +232,73 @@ body {
 
 
 
-/* ПЕРВАЯ СЕКЦИЯ ГЛАВНАЯ СТРАНИЦА */
-#main {
+/* ПЕРВАЯ СЕКЦИЯ ГЛАВНАЯ СТРАНИЦА */#main {
     display: flex;
     justify-content: space-between;
     align-items: center; /* Центрируем элементы по вертикали */
-    padding: 180px 100px; /* Добавляем отступы */
+    padding: 180px 100px; /* Отступы для больших экранов */
     background: none; /* Убираем фон */
 }
 
-.text-column2 {
-    flex: 50; /* Занимает 1 часть доступной ширины */
-    padding-right: 20px; /* Отступ справа для текстовой колонки */
-    text-align: center; /* Текст выравнивается слева */
-}
-.main-image {
-    max-width: 100%; /* максимальная ширина – 100% от родительского блока */
-    height: auto; /* высота будет определяться автоматически */
-}
-.image-column {
-    flex: 0 0 35%; /* или просто 'flex: 1; если хотите равномерно распределить */
-}
 .text-column {
-    flex: 0 0 63%; /* или просто 'flex: 1; если хотите равномерно распределить */
+    flex: 0 0 63%; /* Занимает 63% ширины на больших экранах */
+    padding-right: 20px; /* Отступ справа для текстовой колонки */
+    text-align: left; /* Изменяем на лево для мобильных */
 }
 
-    /* БРЕНДЫ ЛОГО */
-    .brand-logos {
-        margin-top: 40px;
+.image-column {
+    flex: 0 0 35%; /* Занимает 35% ширины на больших экранах */
+}
+
+.main-image {
+    max-width: 100%; /* Максимальная ширина 100% от родительского блока */
+    height: auto; /* Высота будет определяться автоматически */
+}
+
+/* БРЕНДЫ ЛОГО */
+.brand-logos {
+    margin-top: 40px;
+    text-align: center; /* Выравнивание по центру */
+}
+
+.logo-container {
+    margin: 20px 0;
+}
+
+.brand-logo {
+    width: 100px; /* Размер логотипа */
+    height: auto;
+    transition: transform 0.5s; /* Анимация при наведении */
+}
+
+.brand-logo:hover {
+    transform: scale(1.2); /* Увеличение при наведении */
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+    #main {
+        flex-direction: column; /* Переключение на вертикальное расположение */
+        padding: 50px 20px; /* Уменьшаем отступы для мобильных */
     }
 
-    .logo-container {
-        margin: 20px 0;
+    .text-column {
+        flex: 1; /* Занимает всю ширину на мобильных */
+        padding-right: 0; /* Убираем отступы справа */
+        text-align: center; /* Центрируем текст */
     }
 
-    .brand-logo {
-        width: 100px; /* Добавьте нужный вам размер */
-        height: auto;
-        transition: transform 0.5s; /* Анимация при наведении */
+    .image-column {
+        flex: 1; /* Занимает всю ширину на мобильных */
+        margin-top: 20px; /* Отступ сверху для изображений */
     }
 
-    .brand-logo:hover {
-        transform: scale(1.2); /* Увеличение при наведении */
+    .main-image {
+        max-width: 100%; /* Изображение должно занимать 100% ширины */
+        height: auto; /* Высота сохраняется пропорциональной */
     }
-    .brand-logos {
-        text-align: center; /* Выравнивание по центру */
-        margin-top: 40px;
-    }
+}
+
 /* ПЕРВАЯ СЕКЦИЯ ГЛАВНАЯ СТРАНИЦА */
 
 
@@ -224,46 +369,65 @@ body {
     }
 }
 /* Кнопки на ГЛАВНЫХ СТРАНИЦАХ */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px auto;
+    max-width: 1200px; /* Ограничивает ширину контейнера */
+}
 
+.button-left, .button-right {
+    flex: 1;
+    margin: 10px;
+    text-align: center;
+    background-color: transparent; /* Прозрачный фон */
+    padding: 20px;
+    border-radius: 10px; /* Закругление углов */
+    transition: transform 0.3s;
+    color: inherit; /* Устанавливаем цвет текста у ссылок, чтобы он наследовался от родительского элемента */
+}
+
+.button-left:hover, .button-right:hover {
+    transform: scale(1.05); /* Увеличение размера при наведении */
+}
+
+.button-image {
+    width: 100%; /* Изображение занимает 100% ширины контейнера */
+    height: auto; /* Высота будет автоматически подстраиваться */
+    object-fit: cover; /* Обеспечивает обрезку изображения по размеру */
+    border-radius: 30px;
+}
+
+h3 {
+    margin: 10px 0 5px; /* Отступы для заголовка */
+    color: #fff; /* Цвет текста под заголовком */
+}
+
+p {
+    font-size: 14px;
+    color: #fff; /* Цвет текста под заголовком */
+}
+
+/* Медиа-запрос для мобильных устройств */
+@media (max-width: 768px) {
     .button-container {
-        display: flex;
-        justify-content: space-between;
-        margin: 20px auto;
-        max-width: 1200px; /* Ограничивает ширину контейнера */
+        flex-wrap: nowrap; /* Избегаем переноса кнопок на новую строку */
+        overflow-x: auto; /* Добавляем прокрутку, если контент выходит за пределы */
+        margin: 10px; /* Уменьшаем отступы для мобильных */
     }
 
     .button-left, .button-right {
-        flex: 1;
-        margin: 10px;
-        text-align: center;
-        background-color: transparent; /* Прозрачный фон */
-        padding: 20px;
-        border-radius: 10px; /* Закругление углов */
-        transition: transform 0.3s;
-        color: inherit; /* Устанавливаем цвет текста у ссылок, чтобы он наследовался от родительского элемента */
-    }
-
-    .button-left:hover, .button-right:hover {
-        transform: scale(1.05); /* Увеличение размера при наведении */
+        flex: 0 0 45%; /* Задаем фиксированную ширину для кнопок, чтобы они были компактнее */
+        min-width: 150px; /* Минимальная ширина кнопок */
+        padding: 15px 10px; /* Уменьшаем отступы внутри кнопок */
     }
 
     .button-image {
-        width: 400px; /* Установите желаемую ширину */
-        height: 300px; /* Установите желаемую высоту */
-        object-fit: cover; /* Обеспечивает обрезку изображения по размеру */
-        border-radius: 30px;
+        width: 80%; /* Уменьшаем ширину изображения до 80% */
+        height: auto; /* Высота будет автоматически подстраиваться */
     }
+}
 
-    h3 {
-        margin: 10px 0 5px; /* Отступы для заголовка */
-        color: #fff; /* Цвет текста под заголовком */
-
-    }
-
-    p {
-        font-size: 14px;
-        color: #fff; /* Цвет текста под заголовком */
-    }
 /* Кнопки на ГЛАВНЫХ СТРАНИЦАХ */
 
 
@@ -457,23 +621,23 @@ body {
 
 
 /* РАСПОЛОЖЕНИЕ КНОПОК В ПОДВАЛЕ*/
+.footer {
+    background-color: #333; /* Цвет фона подвала */
+    padding: 10px 20px; /* Отступы для футера */
+    display: flex; /* Используем флекс для разметки */
+    flex-direction: column; /* Устанавливаем вертикальное направление */
+    align-items: center; /* Центрируем элементы по горизонтали */
+}
+
 .footer-links {
-    height: 100%; /* Убедитесь, что высота блока соответствует родительскому */
+    display: flex; /* Используем флекс для размещения ссылок в строку */
+    justify-content: center; /* Центрируем ссылки по горизонтали */
+    flex-wrap: wrap; /* Позволяем ссылкам переноситься на новую строку */
+    width: 100%; /* Гарантируем, что блок с ссылками занимает всю ширину */
 }
 
 .footer-links a {
-    margin-right: 15px; /* Отступ между ссылками */
-    color: white; /* Цвет ссылок */
-    text-decoration: none; /* Убираем подчеркивание */
-
-}
-
-.footer-icon {
-    color: #fff; /* Цвет иконок */
-    margin-right: 10px; /* Отступ между иконкой и текстом */
-}
-.footer-links a {
-    margin-right: 15px; /* Отступ между ссылками */
+    margin: 10px; /* Отступ между ссылками уменьшен для мобильных */
     color: white; /* Цвет ссылок */
     text-decoration: none; /* Убираем подчеркивание */
     transition: font-size 0.3s ease; /* Плавный переход для изменения размера шрифта */
@@ -482,6 +646,29 @@ body {
 .footer-links a:hover {
     font-size: 1.2em; /* Увеличиваем размер шрифта при наведении */
 }
+
+.footer-icon {
+    color: #fff; /* Цвет иконок */
+    margin-right: 10px; /* Отступ между иконкой и текстом */
+}
+
+/* Медиа-запрос для мобильных устройств */
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column; /* Устанавливаем вертикальное направление для мобильных */
+        align-items: center; /* Центрируем элементы по горизонтали */
+    }
+
+    .footer-links {
+        justify-content: center; /* Центруем ссылки по горизонтали */
+        padding: 10px; /* Добавляем отступы для удобства */
+    }
+
+    .footer-links a {
+        margin: 5px; /* Уменьшаем отступы между ссылками на мобильных */
+    }
+}
+
 
 /* РАСПОЛОЖЕНИЕ КНОПОК В ПОДВАЛЕ*/
 
@@ -603,7 +790,6 @@ body {
         .slide.active {
             opacity: 1; /* Отображение активного слайда */
         }
-
 
 
 

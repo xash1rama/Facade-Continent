@@ -96,12 +96,8 @@
 }
 
 .volume-input {
-    display: inline-block;
-    margin-left: 3px;
-    padding: 5px; /* Добавляем отступы для инпута */
-    border: 1px solid rgba(0, 123, 255, 0.3); /* Полупрозрачная граница для инпута */
+
     border-radius: 10px; /* Закругленные углы для инпута */
-    background-color: #003366; /* Темный фон для инпута */
     color: white; /* Цвет текста инпута */
 }
     /* Таблицы */

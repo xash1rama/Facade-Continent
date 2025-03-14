@@ -21,7 +21,7 @@ Facade Continent - Портфолио кровли
     {% for portfolio_id, portfolio in portfolios.items() %}
     <div class="portfolio-item" style="margin-bottom: 10px; padding: 10px;">
         <div class="position-relative text-center">
-                        <img src="image/portfolio/{{ portfolio.main_photo }}" alt="{{ portfolio.title }}" class="img-fluid" style="width: 400px; height: 375px; margin: 5px;">
+                        <img src="image/portfolio/{{ portfolio.main_photo }}" alt="{{ portfolio.title }}" class="img-fluid" style="width: auto; height: 335px; margin: 5px;">
             <div class="portfolio-overlay" style="position: absolute; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.3); color: white; padding: 10px;">
                 <h2 style="font-size: 1.5em; margin: 0;">{{ portfolio.title }}</h2>
                 <p style="font-size: 1em; margin: 0;">{{ portfolio.description }}</p>
@@ -38,7 +38,7 @@ Facade Continent - Портфолио кровли
         </div>
         <div id="gallery-{{ portfolio_id }}" class="gallery" style="margin-top: 20px;">
             {% for photo in portfolio.photos %}
-            <img src="image/portfolio/{{ photo.filename }}" alt="Фото" style="width: 300px; height: 275px; margin: 5px;"
+            <img src="image/portfolio/{{ photo.filename }}" alt="Фото" style="width: auto; height: 275px; margin: 5px;"
                  onclick="openFullscreen('image/portfolio/{{ photo.filename }}', {{ loop.index0 }}, {{ portfolio.photos|length }})" onmouseover="this.style.cursor='pointer'">
             {% endfor %}
         </div>
@@ -78,6 +78,8 @@ Facade Continent - Портфолио кровли
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="scripts/script_portfolios.js"></script>
 {% endblock %}
+
+
 
 
 

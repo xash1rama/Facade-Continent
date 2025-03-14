@@ -3,57 +3,40 @@ body {
     background-color: #f4f4f4;
     margin: 0;
 }
+
 .custom-contact-form {
-    background: rgba(255, 255, 255, 0);
+    background: rgba(255, 255, 255, 0.9);
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     max-width: 420px;
     margin: auto;
+    width: 90%; /* Устанавливаем ширину 90% для мобильных устройств */
+    box-sizing: border-box; /* Учитываем отступы и границы */
 }
+
 .custom-form-group {
     margin-bottom: 15px;
 }
+
 .custom-label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
 }
+
 .custom-input,
 .custom-select,
 .custom-textarea {
-    width: 100%;
+    width: 100%; /* Полная ширина */
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 3px;
     font-size: 16px;
-    box-sizing: border-box;
-    background: rgba(255, 255, 255, 0.7); /* Полупрозрачный фон для полей */
+    box-sizing: border-box; /* Учитываем отступы и границы */
+    background: rgba(255, 255, 255, 0.7);
 }
 
-.custom-select22 {
-    max-width: 600px; /* Увеличенная максимальная ширина для поля выбора */
-    padding: 15px; /* Увеличиваем отступы для большей высоты */
-    font-size: 16px; /* Увеличиваем размер шрифта */
-    color: #333; /* Цвет текста по умолчанию */
-    background: rgba(255, 255, 255, 0.7); /* Полупрозрачный фон для поля выбора */
-}
-
-.custom-select22:focus {
-    color: #333; /* Цвет текста при фокусе (наведении) */
-    background: rgba(255, 255, 255, 0.9); /* Увеличиваем непрозрачность фона при фокусе */
-}
-
-.custom-select22 option {
-    color: #333; /* Цвет текста опций в выпадающем списке */
-    background: #fff; /* Цвет фона опций в выпадающем списке */
-}
-
-.custom-textarea {
-    resize: vertical;
-    height: 100px;
-    background: rgba(255, 255, 255, 0.7); /* Полупрозрачный фон для текстовой области */
-}
 .custom-submit-button {
     background-color: #5cb85c;
     color: white;
@@ -62,53 +45,43 @@ body {
     border-radius: 3px;
     cursor: pointer;
     font-size: 16px;
-}
-.custom-submit-button:hover {
-    background-color: #4cae4c;
+    width: 100%; /* Кнопка занимает всю ширину */
 }
 
 .notification {
-    display: block; /* Уведомления будут отображаться как блочные элементы */
-    margin: 10px auto; /* Центрируем уведомления и добавляем отступ сверху */
+    display: block;
+    margin: 10px auto;
     padding: 15px;
     border-radius: 5px;
-    position: relative; /* Убираем фиксированное позиционирование */
-    width: 300px; /* Ширина уведомлений */
-    z-index: 1000; /* Устанавливаем высокий уровень для отображения поверх других элементов */
-    transition: opacity 0.5s ease, transform 0.5s ease; /* Плавный переход для анимации */
+    position: relative;
+    width: 90%; /* Устанавливаем ширину 90% для мобильных устройств */
+    max-width: 300px; /* Максимальная ширина для уведомлений */
+    z-index: 1000;
 }
 
-/* Успешное уведомление */
-.notification.success {
-    background-color: #d4edda; /* Светло-зеленый фон */
-    color: #155724; /* Темно-зеленый текст */
-    border: 1px solid #c3e6cb; /* Светло-зеленая граница */
-}
+/* Медиазапросы для мобильных устройств */
+@media (max-width: 768px) {
+    .custom-contact-form {
+        padding: 15px; /* Уменьшаем отступы для мобильных устройств */
+    }
 
-/* Уведомление об ошибке */
-.notification.error {
-    background-color: #f8d7da; /* Светло-красный фон */
-    color: #721c24; /* Темно-красный текст */
-    border: 1px solid #f5c6cb; /* Светло-красная граница */
-}
+    .custom-label,
+    .custom-input,
+    .custom-select,
+    .custom-textarea,
+    .custom-submit-button {
+        font-size: 14px; /* Уменьшаем размер шрифта */
+    }
 
-/* Уведомление с обратным отсчетом */
-.notification.countdown {
-    background-color: #fff3cd; /* Светло-желтый фон */
-    color: #856404; /* Темно-желтый текст */
-    border: 1px solid #ffeeba; /* Светло-желтая граница */
-}
+    .custom-textarea {
+        height: 80px; /* Уменьшаем высоту текстовой области */
+    }
 
-/* Анимация появления */
-.show {
-    opacity: 1; /* Полная видимость */
+    .notification {
+        width: 90%; /* Устанавливаем ширину уведомлений 90% для мобильных устройств */
+        max-width: 300px; /* Максимальная ширина для уведомлений */
+    }
 }
-
-/* Анимация исчезновения */
-.hide {
-    opacity: 0; /* Прозрачность */
-}
-
 
 
 

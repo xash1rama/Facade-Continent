@@ -18,7 +18,7 @@ body {
     }
 
     .gallery.open {
-        max-height: 500px; /* Максимальная высота при открытии */
+        max-height: 400px; /* Максимальная высота при открытии */
     }
     .portfolio-item img {
         transition: transform 0.3s ease; /* Плавный переход для увеличения */

@@ -6,12 +6,10 @@ services:
     command: >
       sh -c "uvicorn fasad.main:app --host 0.0.0.0 --port 5005 --reload & 
               python -m fasad.bot.bot"
-
     ports:
-      - 5005:5005  # Добавьте эту строку
+      - 5005:5005
     networks:
       - mynetwork
-
 
   nginx:
     build: ./nginx
@@ -26,6 +24,16 @@ services:
     networks:
       - mynetwork
 
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - ./letsencrypt:/etc/letsencrypt
+      - ./nginx:/etc/nginx
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+    networks:
+      - mynetwork
+
 networks:
   mynetwork:
     driver: bridge
+

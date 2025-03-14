@@ -1,4 +1,3 @@
-
 /* ЭТАПЫ РАБОТ И ТД И ТП */
 .slide-button12 {
     background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный черный фон для кнопки */
@@ -276,12 +275,12 @@ body {
 
 .custom-image {
     height: 150px; /* Высота изображения */
-    width: 32%; /* Ширина каждого изображения - 1/3 от слайда */
+    width: 30%; /* Увеличиваем ширину каждого изображения - 1/3 от слайда */
     background-size: cover;
     background-position: center;
     position: relative;
     transition: transform 0.3s ease;
-    margin: 0 1%; /* Убираем отступы, добавляем небольшие отступы между изображениями */
+    margin: 0 2%; /* Увеличиваем отступы между изображениями */
     border-radius: 30px; /* Закругление углов изображений */
 }
 
@@ -290,26 +289,26 @@ body {
 }
 
 .custom-info {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
+    position: center;
+    bottom: 7px;
+    left: 7px;
     color: white;
     background: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон для текста */
-    padding: 10px;
-    border-radius: 15px;
+    padding: 1px;
+    border-radius: 10px;
 }
 
 .custom-arrow {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.3);
+    top: 65%;
+    transform: translateY(-10%);
+    background: rgba(255, 255, 255, 0.5);
     border: none;
-    padding: 15px;
+    padding: 10px;
     cursor: pointer;
     border-radius: 50%;
     z-index: 10;
-    transition: background 0.3s, transform 0.3s;
+    transition: background 0.2s, transform 0.2s;
 }
 
 .left-custom-arrow {
@@ -322,28 +321,15 @@ body {
 
 .custom-arrow:hover {
     background: rgba(255, 255, 255, 0.6); /* Более светлый фон при наведении */
-    transform: scale(1.3); /* Увеличение при наведении */
+    transform: scale(1.1); /* Увеличение при наведении */
+        outline: none; /* Убираем обводку при фокусе */
+
 }
 
-.custom-button {
-    background-color: transparent; /* Прозрачный фон для кнопки */
-    border: 2px solid rgba(255, 255, 255, 0.8); /* Полупрозрачная рамка */
-    color: #fff; /* Белый текст */
-    padding: 10px 15px; /* Отступы */
-    font-size: 16px; /* Размер шрифта */
-    cursor: pointer; /* Указатель при наведении */
-    margin-top: 10px; /* Отступ сверху */
-    transition: background-color 0.3s, color 0.3s; /* Плавный переход цвета */
-}
-
-.custom-button:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* Легкая непрозрачность при наведении */
-    color: #ffffff; /* Темный текст при наведении */
-}
 
 .custom-dots-container {
     text-align: center;
-    margin-top: 10px;
+    margin-top: 1px;
 }
 
 .custom-dot {
@@ -363,13 +349,10 @@ body {
 /* Адаптивный дизайн для мобильных устройств */
 @media (max-width: 768px) {
     .custom-image {
-        width: 32%; /* Устанавливаем ширину изображения на 1/3 от слайда для мобильных */
-        margin: 0 1%; /* Убираем отступы между изображениями */
+        width: 45%; /* Увеличиваем ширину изображения на мобильных */
+        margin: 0 2.5%; /* Увеличиваем отступы между изображениями */
     }
 
-    .custom-slider {
-        flex-direction: row; /* Слайдер по-прежнему в строчном направлении */
-    }
     .custom-slider {
         flex-direction: row; /* Слайдер по-прежнему в строчном направлении */
     }
@@ -432,28 +415,30 @@ body {
     transform: scale(1.3); /* Увеличение при наведении */
 }
 
+
 .custom-info2 {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
+    position: center;
+    bottom: 7px;
+    left: 7px;
     color: white;
     background: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон для текста */
-    padding: 10px;
-    border-radius: 15px;
+    padding: 1px;
+    border-radius: 10px;
 }
 
 .custom-arrow2 {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.3);
+    top: 65%;
+    transform: translateY(-10%);
+    background: rgba(255, 255, 255, 0.5);
     border: none;
-    padding: 15px;
+    padding: 10px;
     cursor: pointer;
     border-radius: 50%;
     z-index: 10;
-    transition: background 0.3s, transform 0.3s;
+    transition: background 0.2s, transform 0.2s;
 }
+
 
 .left-custom-arrow2 {
     left: 20px;
@@ -466,6 +451,8 @@ body {
 .custom-arrow2:hover {
     background: rgba(255, 255, 255, 0.6); /* Более светлый фон при наведении */
     transform: scale(1.3); /* Увеличение при наведении */
+    outline: none; /* Убираем обводку при фокусе */
+
 }
 
 .custom-button2 {
@@ -482,6 +469,8 @@ body {
 .custom-button2:hover {
     background-color: rgba(255, 255, 255, 0.2); /* Легкая непрозрачность при наведении */
     color: #ffffff; /* Темный текст при наведении */
+    outline: none; /* Убираем обводку при фокусе */
+
 }
 
 .custom-dots-container2 {
@@ -510,6 +499,7 @@ body {
         margin: 0 1%; /* Убираем отступы между изображениями */
     }
 
+
     .custom-slider2 {
         flex-direction: row; /* Слайдер по-прежнему в строчном направлении */
     }
@@ -521,9 +511,11 @@ body {
         padding: 20px 0; /* Уменьшаем отступы контейнера для мобильных */
     }
 }
-
-
 /* СЛАЙДЕР ПО 3 ФОТО №2*/
+
+
+
+
 
 .welcome-container {
     display: flex; /* Используем флекс для выравнивания элементов */
@@ -596,6 +588,8 @@ p {
         font-size: 0.9rem; /* Уменьшаем размер шрифта для текста */
     }
 }
+
+
 
 
 

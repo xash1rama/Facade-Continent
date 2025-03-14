@@ -13,9 +13,9 @@ services:
 
   nginx:
     build: ./nginx
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf  # Убедитесь, что путь правильный
-      - ./letsencrypt:/etc/letsencrypt
+    # volumes:
+    #   - ./nginx/nginx.conf:/etc/nginx/nginx.conf  # Убедитесь, что путь правильный
+    #   - ./letsencrypt:/etc/letsencrypt
     ports:
       - 80:80
     depends_on:

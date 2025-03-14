@@ -149,7 +149,7 @@ slider.style.width = `${slides.length * 240 * 2}px`;
 
 // Функция для запуска анимации
 function startSlider() {
-    slider.style.animation = 'scroll 40s linear infinite';
+    slider.style.animation = 'scroll 100s linear infinite';
 }
 
 startSlider();

@@ -1,10 +1,20 @@
-FROM nginx:1.20-alpine
+# Используем официальный образ Nginx
+FROM nginx:latest
 
-RUN rm /etc/nginx/conf.d/default.conf
+# Установка certbot для получения SSL-сертификатов
+RUN apt-get update && \
+    apt-get install -y certbot python3-certbot-nginx && \
+    apt-get clean
 
-COPY nginx.conf /etc/nginx/conf.d
+# Копирование конфигурации Nginx
+COPY nginx.conf /etc/nginx/nginx.conf
 
-RUN mkdir -p /home/facade/default
+# Создание директории для сертификатов
+RUN mkdir -p /etc/letsencrypt/live/facade-continent.ru
 
-EXPOSE 80
-EXPOSE 443
+# Установка скрипта для автоматического получения сертификатов
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+# Указываем команду запуска
+ENTRYPOINT ["/entrypoint.sh"]

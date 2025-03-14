@@ -173,59 +173,78 @@ footer {
 
 
 
-/* ШАПКА СВЕРХУ */
-        header {
-            background: linear-gradient(135deg, #001a33, #000000); /* Темный синий градиент к темно-серому */
-            padding: 10px 0; /* Уменьшаем отступы сверху и снизу */
-        }
-        .logo img {
-            height: 280px; /* Увеличьте высоту логотипа */
-            width: auto; /* Автоматическая ширина для сохранения пропорций */
-                margin-top: 20px; /* Дополнительный отступ для логотипа */
+        /* ШАПКА СВЕРХУ */
+header {
+    background: linear-gradient(135deg, #001a33, #000000); /* Темный синий градиент к темно-серому */
+    padding: 10px 0; /* Уменьшаем отступы сверху и снизу */
+}
 
-        }
+.logo img {
+    height: 280px; /* Увеличьте высоту логотипа */
+    width: auto; /* Автоматическая ширина для сохранения пропорций */
+    margin-top: 20px; /* Дополнительный отступ для логотипа */
+}
 
+/* Меню полоска сверху */
+.navbar {
+    background-color: #000; /* Черный цвет для панели навигации */
+    position: fixed; /* Фиксируем панель */
+    top: 0; /* Прикрепляем к верхней части экрана */
+    width: 100%; /* Занимает всю ширину */
+    z-index: 1000; /* Повышаем уровень по сравнению с другими элементами */
+    transition: top 0.3s; /* Плавный переход при изменении положения */
+}
 
-            /* меню полоска сверху */
-            .navbar-nav .nav-link {
-                margin: 0 35px; /* Отступы между кнопками */
-                flex: 10; /* Растягиваем кнопки */
-                text-align: center; /* Центрируем текст кнопок */
-                transition: transform 0.3s ease, font-size 0.3s ease; /* Плавный переход для эффекта наведения */
-            }
+.navbar-nav {
+    display: flex; /* Используем flex для выравнивания кнопок */
+    justify-content: center; /* Центрируем кнопки */
+    width: 100%; /* Ширина на всю ширину родителя */
+}
 
-            .navbar-nav {
-                display: flex; /* Используем flex для выравнивания кнопок */
-                justify-content: center; /* Центрируем кнопки */
-                width: 100%; /* Ширина на всю ширину родителя */
-            }
+.navbar-nav .nav-link {
+    margin: 0 10px; /* Отступы между кнопками */
+    flex: 10; /* Растягиваем кнопки */
+    text-align: center; /* Центрируем текст кнопок */
+    transition: transform 0.3s ease, font-size 0.3s ease; /* Плавный переход для эффекта наведения */
+}
 
-            .navbar-nav .nav-link:hover {
-                color: white !important; /* Устанавливаем цвет текста при наведении на белый */
-                font-weight: bold; /* Жирный текст при наведении */
-                transform: scale(1.1); /* Увеличиваем размер текста при наведении */
-            }
+.navbar-nav .nav-link:hover {
+    color: white !important; /* Устанавливаем цвет текста при наведении на белый */
+    font-weight: bold; /* Жирный текст при наведении */
+    transform: scale(1.1); /* Увеличиваем размер текста при наведении */
+}
 
-            .navbar {
-                background-color: #000; /* Черный цвет для панели навигации */
-                position: fixed; /* Фиксируем панель */
-                top: 0; /* Прикрепляем к верхней части экрана */
-                width: 100%; /* Занимает всю ширину */
-                z-index: 1000; /* Повышаем уровень по сравнению с другими элементами */
-                transition: top 0.3s; /* Плавный переход при изменении положения */
-            }
+/* Медиазапрос для мобильных устройств */
+@media (max-width: 768px) {
+    .navbar-nav .nav-link {
+        margin: 0 5px; /* Уменьшаем отступы между кнопками */
+        font-size: 12px; /* Уменьшаем размер шрифта */
+        padding: 5px; /* Уменьшаем внутренние отступы для кнопок */
+    }
 
+    .navbar {
+        padding: 5px 0; /* Уменьшаем верхний и нижний отступы для панели навигации */
+    }
 
-        /* контакты в шапке */
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start; /* Выровнять по левой стороне */
-        }   .telegram-icon, .youtube-icon {
-            font-size: 1.5rem;
-            color: white;
-            margin-right: 15px; /* Отступ между иконками */
-        }
+    .navbar-nav {
+        flex-direction: column; /* Меняем направление на вертикальное для мобильных */
+        align-items: center; /* Центрируем кнопки по вертикали */
+    }
+}
+
+/* Контакты в шапке */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Выровнять по левой стороне */
+}
+
+.telegram-icon, .youtube-icon {
+    font-size: 1.5rem;
+    color: white;
+    margin-right: 15px; /* Отступ между иконками */
+}
+
 
 /* ШАПКА СВЕРХУ */
 
@@ -262,13 +281,19 @@ footer {
 }
 
 .logo-container {
+    display: flex; /* Используем Flexbox для выравнивания */
+    justify-content: flex-start; /* Выравнивание логотипов по левому краю */
+    flex-wrap: nowrap; /* Убираем перенос на новую строку */
+    overflow-x: auto; /* Добавляем горизонтальную прокрутку, если логотипов больше, чем помещается на экран */
     margin: 20px 0;
+    white-space: nowrap; /* Запрещаем перенос строк */
 }
 
 .brand-logo {
     width: 100px; /* Размер логотипа */
     height: auto;
     transition: transform 0.5s; /* Анимация при наведении */
+    margin: 0 10px; /* Отступы между логотипами */
 }
 
 .brand-logo:hover {
@@ -298,6 +323,7 @@ footer {
         height: auto; /* Высота сохраняется пропорциональной */
     }
 }
+
 
 /* ПЕРВАЯ СЕКЦИЯ ГЛАВНАЯ СТРАНИЦА */
 
@@ -459,7 +485,6 @@ p {
 /* Cтрелочка */
 
 
-
 /* СЛАЙД ФОТОГРАФИЙ */
 footer {
     width: 100%; /* Полная ширина видовой области */
@@ -469,21 +494,23 @@ footer {
     margin-left: -50vw; /* Отмена сдвига для левой стороны */
     margin-right: -50vw; /* Отмена сдвига для правой стороны */
 }
+
 body {
     overflow-x: hidden; /* Отключение горизонтальной прокрутки */
 }
+
 #infinite-slider {
-    overflow: hidden;
-    white-space: nowrap;
+    overflow: hidden; /* Скрыть излишки */
     position: relative;
-    height: 100px; /* Задайте нужную высоту */
+    height: 150px; /* Задайте нужную высоту */
     background-color: transparent; /* Сделайте фон контейнера прозрачным, если нужно */
 }
 
 .slider1 {
     display: flex; /* Используем flexbox для горизонтального расположения */
     overflow: hidden; /* Скрывает излишки, если они выходят за пределы контейнера */
-    width: 240px; /* Ширина контейнера слайдов */
+    width: 100%; /* Ширина контейнера слайдов */
+    transition: transform 0.5s ease; /* Плавный переход при прокрутке */
 }
 
 .slide1 {
@@ -504,13 +531,21 @@ body {
     100% { transform: translateX(-100%); }
 }
 
+/* Адаптивные стили для мобильных устройств */
+@media (max-width: 768px) {
+    .slider1 {
+        width: 100%; /* Убедитесь, что ширина слайдера 100% на мобильных */
+    }
 
+    .slide1 {
+        min-width: 40vw; /* Уменьшение ширины слайда до 50% от ширины экрана */
+    }
 
-
-@keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); } /* Прокрутка на 50% ширины слайдов */
+    .slide1 img {
+        height: 110px; /* Установите фиксированную высоту для изображений на мобильных устройствах */
+    }
 }
+
 /* СЛАЙД ФОТОГРАФИЙ */
 
 
@@ -562,6 +597,7 @@ body {
 .messenger-button:hover {
     opacity: 0.8; /* Уменьшаем прозрачность при наведении */
 }
+
 .contact-info {
     margin-top: 20px; /* Отступ сверху для группы контактной информации */
 }
@@ -593,6 +629,7 @@ body {
 .contact-button:hover {
     background-color: #0056b3; /* Цвет кнопки при наведении */
 }
+
 /* Уникальные стили для кнопок */
 .btn i {
     margin-right: 5px; /* Отступ между иконкой и текстом */
@@ -611,6 +648,26 @@ body {
 .modal-footer {
     border-top: 0; /* Убираем верхнюю границу */
 }
+
+/* Медиазапрос для уменьшения кнопок на мобильных устройствах */
+@media (max-width: 768px) {
+    .messenger-button {
+        padding: 10px 15px; /* Уменьшаем отступы внутри кнопок */
+        font-size: 14px; /* Уменьшаем размер шрифта */
+    }
+
+    .contact-label {
+        font-size: 16px; /* Уменьшаем размер шрифта для ярлыка */
+    }
+
+    .contact-button {
+        width: 40px; /* Устанавливаем фиксированную ширину кнопки */
+        height: 40px; /* Устанавливаем фиксированную высоту кнопки */
+        min-width: 40px; /* Минимальная ширина для кнопки */
+        min-height: 40px; /* Минимальная высота для кнопки */
+    }
+}
+
 /*СТИЛИ ДЛЯ КОНТАКТОВ*/
 
 
@@ -682,13 +739,21 @@ body {
         margin: 5px; /* Уменьшаем отступы между ссылками на мобильных */
     }
 
-    .contact-info {
-        align-items: center; /* Центрируем контактную информацию */
+    .contact-info2 {
+        width: 100%; /* Устанавливаем ширину на 100% для центрирования */
         text-align: center; /* Центрируем текст */
+        margin-top: 10px; /* Добавляем отступ сверху для удобства */
+        display: flex; /* Используем флекс для центрирования */
+        justify-content: center; /* Центрируем содержимое */
+        flex-direction: column; /* Устанавливаем вертикальное направление для мобильных */
+        align-items: center; /* Центрируем элементы по горизонтали */
+    }
+
+    .contact-info2 div {
+        margin: 5px 0; /* Отступ между элементами контактной информации */
+        text-align: center; /* Центрируем текст в каждом элементе */
     }
 }
-
-
 /* РАСПОЛОЖЕНИЕ КНОПОК В ПОДВАЛЕ*/
 
 
@@ -740,7 +805,7 @@ body {
 
         .slide-text {
             position: absolute; /* Положение текста относительно родителя */
-            bottom: 80px; /* Нижний отступ для текста */
+            bottom: 10px; /* Нижний отступ для текста */
             left: 50%; /* Центр по горизонтали */
             transform: translateX(-50%); /* Центрирование */
             color: #fff; /* Белый цвет текста */
@@ -750,20 +815,31 @@ body {
         }
 
         .slide-button {
-            background-color: transparent; /* Прозрачный фон для кнопки */
-            border: 2px solid rgba(255, 255, 255, 0.5); /* Полупрозрачная рамка */
-            color: #fff; /* Белый текст */
-            padding: 10px 15px; /* Отступы */
-            font-size: 16px; /* Размер шрифта */
-            cursor: pointer; /* Указатель при наведении */
-            margin-top: 10px; /* Отступ сверху */
-            transition: background-color 0.3s, color 0.3s; /* Плавный переход цвета */
-        }
+    background-color: transparent; /* Прозрачный фон для кнопки */
+    border: 2px solid rgba(255, 255, 255, 0.5); /* Полупрозрачная рамка */
+    color: #fff; /* Белый текст */
+    padding: 10px 15px; /* Отступы */
+    font-size: 16px; /* Размер шрифта */
+    cursor: pointer; /* Указатель при наведении */
+    margin-top: 10px; /* Отступ сверху */
+    transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Плавный переход цвета и трансформации */
+    outline: none; /* Убираем обводку при фокусе */
+}
 
-        .slide-button:hover {
-            background-color: rgba(255, 255, 255, 0.2); /* Легкая непрозрачность при наведении */
-            color: #ffffff; /* Темный текст при наведении */
-        }
+.slide-button:focus {
+    outline: none; /* Убираем обводку при фокусе */
+}
+
+.slide-button:active {
+    transform: scale(0.95); /* Уменьшаем кнопку при нажатии */
+}
+
+.slide-button:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Легкая непрозрачность при наведении */
+    color: #ffffff; /* Темный текст при наведении */
+}
+
+
 
         .nav-button {
             position: absolute;
@@ -777,12 +853,16 @@ body {
             z-index: 20; /* z-index для кнопок навигации */
             transition: background 0.3s, transform 0.3s; /* Плавный переход */
             opacity: 0.7; /* Начальная прозрачность */
+               outline: none; /* Убираем обводку при фокусе */
+
         }
 
         .nav-button:hover {
             background: rgba(0, 0, 0, 0.5); /* Более темный фон при наведении */
             transform: scale(1.1); /* Увеличение при наведении */
             opacity: 1; /* Прозрачность при наведении */
+                outline: none; /* Убираем обводку при фокусе */
+
         }
 
 
@@ -812,7 +892,7 @@ body {
 
 
 
-
+    /* ШАПКА */
 .header {
     background-color: #444; /* Цвет фона хедера */
     padding: 20px 0; /* Отступы для хедера */
@@ -874,7 +954,5 @@ body {
         margin: 5px 10px; /* Уменьшаем отступы между контактами на мобильных */
     }
 }
-
-
-
+    /* ШАПКА */
 

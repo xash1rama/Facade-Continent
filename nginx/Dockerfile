@@ -14,5 +14,3 @@ RUN mkdir -p /etc/letsencrypt/live/facade-continent.ru
 
 # Указываем команду запуска
 CMD ["sh", "-c", "certbot certonly --nginx -d facade-continent.ru -d www.facade-continent.ru --email facadecontinent@gmail.com --agree-tos --non-interactive && nginx -g 'daemon off;'"]
-
-

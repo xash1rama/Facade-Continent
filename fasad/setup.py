@@ -31,7 +31,7 @@ async def lifespan(main_app: FastAPI):
 def create_datas():
 
     admin = Admin(login=LOGIN, password=PASSWORD)
-    main_mail = Information(name="Почта на сайте", data="mail@mail.ru")
+    main_mail = Information(name="Почта на сайте", data="facadecontinent@gmail.com")
     main_phone = Information(name="Номер на сайте", data="+7(977)820-06-25")
     telegram = Information(name="Общая ТГ группа", data="https://t.me/+ObvZlEypYJU4MDcy")
     link_bot = Information(name="Ссылка на бота", data="https://t.me/AssistentFacadeBot")
@@ -135,3 +135,4 @@ def create_datas():
         session.add(new)
 
     session.commit()
+

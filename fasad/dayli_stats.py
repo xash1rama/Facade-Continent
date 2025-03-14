@@ -23,7 +23,30 @@ class Dayli:
 today = Dayli()
 unique_users = set()
 
+def get_api_token():
+    token = session.query(Information).filter(Information.name == "Токен бота").first()
+    return token.data
 
+def get_id_group():
+    token = session.query(Information).filter(Information.name == "ID ТГ-админ чата").first()
+    return token.data
+
+async def get_error_msg(msg, type, clnt):
+    message_text = f"""❗❗Прошу заметить❗❗️
+
+            На сервере произошла ошибка типа: 
+            {type}
+            **********
+
+            Ошибка говорит о следующем:
+            {msg}
+
+            Ничего страшного не произошло, все работает в прежнем режиме✅
+                        """
+    response = await clnt.post(
+        f"https://api.telegram.org/bot{get_api_token()}/sendMessage",
+        json={"chat_id": get_id_group(), "text": message_text},
+    )
 
 @router.post("/contact_form")
 async def receive_contact_form(
@@ -50,8 +73,8 @@ async def receive_contact_form(
         # Отправляем сообщение в Telegram
         async with httpx.AsyncClient() as client:
             await client.post(
-                f"https://api.telegram.org/bot7843457583:AAFF9sRfDL_otOjQfHMJEtIQhFXSN_e8T-4/sendMessage",
-                json={"chat_id": -1002465218779, "text": message},
+                f"https://api.telegram.org/bot{get_api_token()}/sendMessage",
+                json={"chat_id": get_id_group(), "text": message},
             )
 
         return {"status": "success", "message": "Данные успешно отправлены."}
@@ -59,24 +82,7 @@ async def receive_contact_form(
         async with httpx.AsyncClient() as client:
             error_type = str(type(er).__name__)
             error_message = str(er)
-            message_text = f"""❗❗Прошу заметить❗❗️
-
-На сервере произошла ошибка типа: 
-{error_type}
-**********
-
-Ошибка говорит о следующем:
-{error_message}
-
-Ничего страшного не произошло, все работает в прежнем режиме✅
-            """
-
-            API_TOKEN = session.query(Information).filter(Information.name == "api_bot").first()
-            CHAT_ID = session.query(Information).filter(Information.name == "group_tg_id").first()
-            response = await client.post(
-                f"https://api.telegram.org/bot{API_TOKEN.data}/sendMessage",
-                json={"chat_id": CHAT_ID.data, "text": message_text},
-            )
+            await get_error_msg(error_message,error_type,client)
 
 
 
@@ -93,105 +99,97 @@ async def track_user(user: User):
         async with httpx.AsyncClient() as client:
             error_type = str(type(er).__name__)
             error_message = str(er)
-            message_text = f"""❗❗Прошу заметить❗❗️
-
-        На сервере произошла ошибка типа: 
-        {error_type}
-        **********
-
-        Ошибка говорит о следующем:
-        {error_message}
-
-        Ничего страшного не произошло, все работает в прежнем режиме✅
-                    """
-
-            API_TOKEN = session.query(Information).filter(Information.name == "api_bot").first()
-            CHAT_ID = session.query(Information).filter(Information.name == "group_tg_id").first()
-            response = await client.post(
-                f"https://api.telegram.org/bot{API_TOKEN.data}/sendMessage",
-                json={"chat_id": CHAT_ID.data, "text": message_text},
-            )
+            await get_error_msg(error_message, error_type, client)
 
 
 # Функция для отправки отчетов
 async def send_morning_report():
+    try:
+        unique_user_count = len(unique_users)
+        two_st = "пользователя"
+        one_st = "пользователь"
+        more_st = "пользователей"
+        aa = two_st
+        if unique_user_count % 10 == 1:
+            aa = one_st
+        elif (unique_user_count % 10 == 0
+              or unique_user_count % 10 == 5
+              or unique_user_count % 10 == 6
+              or unique_user_count % 10 == 7
+              or unique_user_count % 10 == 8
+              or unique_user_count % 10 == 9
+        ):
+            aa = more_st
 
-    unique_user_count = len(unique_users)
-    two_st = "пользователя"
-    one_st = "пользователь"
-    more_st = "пользователей"
-    aa = two_st
-    if unique_user_count % 10 == 1:
-        aa = one_st
-    elif (unique_user_count % 10 == 0
-          or unique_user_count % 10 == 5
-          or unique_user_count % 10 == 6
-          or unique_user_count % 10 == 7
-          or unique_user_count % 10 == 8
-          or unique_user_count % 10 == 9
-    ):
-        aa = more_st
-
-    msg = f"""Доброe утро!😊
-📊Время 8:30 - статистика📊 
-🕕Статистика за посление 12 часов 🕕
-
-👨Посещаемость сайта👨:
-     {unique_user_count} {aa}
+        msg = f"""Доброe утро!😊
+    📊Время 8:30 - статистика📊 
+    🕕Статистика за посление 12 часов 🕕
     
-📄Заявок с сайта📄: {today.site_forms} 
- """
+    👨Посещаемость сайта👨:
+         {unique_user_count} {aa}
+        
+    📄Заявок с сайта📄: {today.site_forms} 
+     """
+        # Отправляем сообщение в Telegram
+        async with httpx.AsyncClient() as client:
+            await client.post(
+                f"https://api.telegram.org/bot{get_api_token()}/sendMessage",
+                    json={"chat_id": get_id_group(), "text": msg},
+                )
+    except Exception as er:
+        async with httpx.AsyncClient() as client:
+            error_type = str(type(er).__name__)
+            error_message = str(er)
+            await get_error_msg(error_message, error_type, client)
 
-    API_TOKEN = session.query(Information).filter(Information.name == "api_bot").first()
-    CHAT_ID = session.query(Information).filter(Information.name == "group_tg_id").first()
-    # Отправляем сообщение в Telegram
-    async with httpx.AsyncClient() as client:
-        await client.post(
-            f"https://api.telegram.org/bot{API_TOKEN.data}/sendMessage",
-            json={"chat_id": CHAT_ID.data, "text": msg},
-        )
+
 
 
 async def send_evening_report():
-    unique_user_count = len(unique_users)
-    two_st = "пользователя"
-    one_st = "пользователь"
-    more_st = "пользователей"
-    aa = two_st
-    if unique_user_count % 10 == 1:
-        aa = one_st
-    elif (unique_user_count % 10 == 0
-          or unique_user_count % 10 == 5
-          or unique_user_count % 10 == 6
-          or unique_user_count % 10 == 7
-          or unique_user_count % 10 == 8
-          or unique_user_count % 10 == 9
-    ):
-        aa = more_st
+    try:
+        unique_user_count = len(unique_users)
+        two_st = "пользователя"
+        one_st = "пользователь"
+        more_st = "пользователей"
+        aa = two_st
+        if unique_user_count % 10 == 1:
+            aa = one_st
+        elif (unique_user_count % 10 == 0
+              or unique_user_count % 10 == 5
+              or unique_user_count % 10 == 6
+              or unique_user_count % 10 == 7
+              or unique_user_count % 10 == 8
+              or unique_user_count % 10 == 9
+        ):
+            aa = more_st
 
-    msg = f"""Доброго Вечера! 😊
-📊Время 20:30 - статистика📊 
-🕕Статистика за посление 24 часа 🕕
+        msg = f"""Доброго Вечера! 😊
+    📊Время 20:30📊 
+    🕕Статистика за посление 24 часа 🕕
+    
+    👨Посещаемость сайта👨:
+         {unique_user_count} {aa}
+    
+    📄Заявок с сайта📄: {today.site_forms} 
+    
+    
+    🧹Обновляю статистику за сегодняшний день🧹
+    """
 
-👨Посещаемость сайта👨:
-     {unique_user_count} {aa}
+        async with httpx.AsyncClient() as client:
+            await client.post(
+                f"https://api.telegram.org/bot{get_api_token()}/sendMessage",
+                    json={"chat_id": get_id_group(), "text": msg},
+                )
 
-📄Заявок с сайта📄: {today.site_forms} 
+        unique_users.clear()
+        today.site_reset()
+    except Exception as er:
+        async with httpx.AsyncClient() as client:
+            error_type = str(type(er).__name__)
+            error_message = str(er)
+            await get_error_msg(error_message, error_type, client)
 
-
-🧹Обновляю статистику за сегодняшний день🧹
-"""
-
-    API_TOKEN = session.query(Information).filter(Information.name == "api_bot").first()
-    CHAT_ID = session.query(Information).filter(Information.name == "group_tg_id").first()
-    async with httpx.AsyncClient() as client:
-        await client.post(
-            f"https://api.telegram.org/bot{API_TOKEN.data}/sendMessage",
-            json={"chat_id": CHAT_ID.data, "text": msg},
-        )
-
-    unique_users.clear()
-    today.site_reset()
 
 
 def schedule_reports():
@@ -206,3 +204,5 @@ def schedule_reports():
 
 
 schedule_reports()
+
+

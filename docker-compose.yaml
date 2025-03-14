@@ -1,3 +1,4 @@
+
 services:
   app:
     build:
@@ -25,15 +26,16 @@ services:
       - mynetwork
 
   certbot:
-  image: certbot/certbot
-  volumes:
-    - ./letsencrypt:/etc/letsencrypt
-    - ./nginx:/etc/nginx
-  entrypoint: "/bin/sh -c 'certbot certonly --nginx --email facadecontinent@gmail.com --agree-tos --no-eff-email -d facade-continent.ru -d www.facade-continent.ru && trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
-  networks:
-    - mynetwork
+    image: certbot/certbot  # Исправленный отступ
+    volumes:
+      - ./letsencrypt:/etc/letsencrypt
+      - ./nginx:/etc/nginx
+    entrypoint: "/bin/sh -c 'certbot certonly --nginx --email facadecontinent@gmail.com --agree-tos --no-eff-email -d facade-continent.ru -d www.facade-continent.ru && trap exit TERM; while :; do certbot renew; sleep 12h & wait ${!}; done;'"
+    networks:
+      - mynetwork
 
 networks:
   mynetwork:
     driver: bridge
+
 

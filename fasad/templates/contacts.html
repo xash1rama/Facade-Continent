@@ -66,16 +66,9 @@ Facade Continent - Контакты
             </div>
         </div>
     </div>
-
-    <div class="image-column">
-        <img src="image/image_main/logo.png" alt="Описание изображения" class="main-image">
-    </div>
-</section>
-
-
+<form id="contactForm" class="custom-contact-form">
     <h2 class="form-title">ОСТАЛИСЬ ВОПРОСЫ?</h2>
     <h4 class="form-title">Оставьте свои контактные данные, менеджер свяжется с вами и ответит на все интересующие вопросы и даст экспертные рекомендации</h4>
-<form id="contactForm" class="custom-contact-form">
     <div class="custom-form-group">
         <label for="name" class="custom-label">Имя:</label>
         <input type="text" id="name" name="name" class="custom-input" required maxlength="30">
@@ -97,11 +90,13 @@ Facade Continent - Контакты
         <textarea id="comments" name="comments" class="custom-textarea" placeholder="Комментарий" maxlength="200"></textarea>
     </div>
     <button type="submit" class="custom-submit-button">Отправить</button>
-</form>
-
-<div class="notification success" id="notification" style="display:none;">Данные успешно отправлены!</div>
+    <div class="notification success" id="notification" style="display:none;">Данные успешно отправлены!</div>
 <div class="notification error" id="errorNotification" style="display:none;">Ваша заявка принята и уже обрабатывается!</div>
 <div class="notification countdown" id="countdown" style="display:none;"></div>
+
+</form>
+
+</section>
 
 
 {% endblock %}

@@ -12,9 +12,7 @@ COPY nginx.conf /etc/nginx/nginx.conf
 # Создание директории для сертификатов
 RUN mkdir -p /etc/letsencrypt/live/facade-continent.ru
 
-# Установка скрипта для автоматического получения сертификатов
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-
 # Указываем команду запуска
-ENTRYPOINT ["/entrypoint.sh"]
+CMD ["sh", "-c", "certbot certonly --nginx -d facade-continent.ru -d www.facade-continent.ru --email facadecontinent@gmail.com --agree-tos --non-interactive && nginx -g 'daemon off;'"]
+
+

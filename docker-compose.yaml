@@ -2,6 +2,8 @@ services:
   app:
     build:
       context: ./fasad
+    volumes:
+      - ./:/app
     container_name: facade_app
     command: >
       sh -c "uvicorn fasad.main:app --host 0.0.0.0 --port 5005 --reload & 
@@ -11,26 +13,37 @@ services:
     networks:
       - mynetwork
 
-  nginx:
-    build: ./nginx
-    # volumes:
-    #   - ./nginx/nginx.conf:/etc/nginx/nginx.conf  # Убедитесь, что путь правильный
-    #   - ./letsencrypt:/etc/letsencrypt
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
     ports:
-      - 80:80
+      - 9090:9090
     depends_on:
       - app
     networks:
       - mynetwork
 
-  # certbot:
-  #   image: certbot/certbot
-  #   volumes:
-  #     - ./letsencrypt:/etc/letsencrypt
-  #     - ./nginx:/etc/nginx
-  #   entrypoint: "/bin/sh -c 'certbot certonly --nginx --email facadecontinent@gmail.com --agree-tos --no-eff-email -d facade-continent.ru -d www.facade-continent.ru && trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
-  #   networks:
-  #     - mynetwork
+  grafana:
+    image: grafana/grafana:5.1.0
+    ports:
+      - 3000:3000
+    depends_on:
+      - app
+    networks:
+      - mynetwork
+
+  nginx:
+    build: ./nginx
+    ports:
+      - 80:80
+      - 443:443
+
+    depends_on:
+      - app
+    networks:
+      - mynetwork
+
 
 networks:
   mynetwork:

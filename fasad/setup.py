@@ -31,10 +31,10 @@ async def lifespan(main_app: FastAPI):
 def create_datas():
 
     admin = Admin(login=LOGIN, password=PASSWORD)
-    main_mail = Information(name="Почта на сайте", data="facadecontinent@gmail.com")
-    main_phone = Information(name="Номер на сайте", data="+7(977)820-06-25")
-    telegram = Information(name="Общая ТГ группа", data="https://t.me/+ObvZlEypYJU4MDcy")
-    link_bot = Information(name="Ссылка на бота", data="https://t.me/AssistentFacadeBot")
+    main_mail = Information(name="Почта на сайте", data="ПОЧТА")
+    main_phone = Information(name="Номер на сайте", data="НОМЕР")
+    telegram = Information(name="Общая ТГ группа", data="ГРУППА ОФИЦИАЛЬНАЯ")
+    link_bot = Information(name="Ссылка на бота", data="ССЫЛКА НА ТГ БОТА")
     telegram_group_id = Information(name="ID ТГ-админ чата", data=ID_CHAT)
     api = Information(name="Токен бота", data=API_KEY_BOT)
 

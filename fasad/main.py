@@ -41,7 +41,7 @@ app.include_router(router_admin)
 app.include_router(router_admin_portfolio)
 
 
-app.add_middleware(SessionMiddleware, secret_key="qwe1234567890")
+app.add_middleware(SessionMiddleware, secret_key="ВАШ СЕКРЕТНЫЙ КЛЮЧ")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
